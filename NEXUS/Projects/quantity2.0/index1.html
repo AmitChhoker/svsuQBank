@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Units Converter</h1>
+
+        <!-- Area Conversion -->
+        <div class="section">
+            <h2>1. Area</h2>
+            <input type="number" id="area-value" placeholder="Enter the value">
+            <select id="area-converter">
+                <option value="" disabled selected>Choose Area Conversion</option>
+                <option value="acres-to-sqm">Acres to Square Meters</option>
+                <option value="sqm-to-acres">Square Meters to Acres</option>
+                <option value="acres-to-Hec">Acres to Hectares</option>
+                <option value="Hec-to-acres">Hectares to Acres</option>
+                <option value="acres-to-sqrfeet">Acres to Square Feet</option>
+                <option value="sqrfeet-to-acres">Square Feet to Acres</option>
+            </select>
+            <button onclick="convert('area')">Calculate</button>
+            <span id="area-result">Result: </span>
+        </div>
+
+        <!-- Length Conversion -->
+        <div class="section">
+            <h2>2. Length</h2>
+            <input type="number" id="length-value" placeholder="Enter the value">
+            <select id="length-converter">
+                <option value="" disabled selected>Choose Length Conversion</option>
+                <option value="m-to-km">Meters to Kilometers</option>
+                <option value="km-to-m">Kilometers to Meters</option>
+                <option value="m-to-cm">Meters to Centimeters</option>
+                <option value="m-to-cm">Centimeters to Meters</option>
+                <option value="m-to-mm">Meters to Millimeters</option>
+                <option value="mm-to-m">Millimeters to Meters</option>
+                <option value="m-to-f">Meters to Feet</option>
+                <option value="f-to-m">Feet to Meters</option>
+                <option value="m-to-y">Meters to Yards</option>
+                <option value="y-to-m">Yards to Meters</option>
+                <option value="f-to-y">Feet to Yards</option>
+                <option value="y-to-f">Yards to Feet</option>
+                <option value="km-to-mm">Kilometers to Millimeters</option>
+                <option value="mm-to-km">Millimeters to Kilometers</option>
+            </select>
+            <button onclick="convert('length')">Calculate</button>
+            <span id="length-result">Result: </span>
+        </div>
+
+        <!-- Temperature Conversion -->
+        <div class="section">
+            <h2>3. Temperature</h2>
+            <input type="number" id="temp-value" placeholder="Enter the value">
+            <select id="temp-converter">
+                <option value="" disabled selected>Choose Temp. Conversion</option>
+                <option value="c-to-f">Celsius to Fahrenheit</option>
+                <option value="c-to-k">Celsius to Kelvin</option>
+                <option value="f-to-c">Fahrenheit to Celsius</option>
+                <option value="f-to-k">Fahrenheit to Kelvin</option>
+                <option value="k-to-c">Kelvin to Celsius</option>
+                <option value="k-to-f">Kelvin to Fahrenheit</option>
+            </select>
+            <button onclick="convert('temp')">Calculate</button>
+            <span id="temp-result">Result: </span>
+        </div>
+
+        <!-- Volume Conversion -->
+        <div class="section">
+            <h2>4. Volume</h2>
+            <input type="number" id="volume-value" placeholder="Enter the value">
+            <select id="volume-converter">
+                <option value="" disabled selected>Choose Volume Conversion</option>
+                <option value="l-to-ml">Liters to Milliliters</option>
+                <option value="l-to-cubecm">Liters to Cubic Centimeters</option>
+                <option value="l-to-m">Liters to Meters</option>
+                <option value="l-to-USgl">Liters to US gallons(gal)</option>
+                <option value="ml-to-l">Milliliters to Liters</option>
+            </select>
+            <button onclick="convert('volume')">Calculate</button>
+            <span id="volume-result">Result: </span>
+        </div>
+
+        <!-- Mass Conversion -->
+        <div class="section">
+            <h2>5. Mass</h2>
+            <input type="number" id="mass-value" placeholder="Enter the value">
+            <select id="mass-converter">
+                <option value="" disabled selected>Choose Mass Conversion</option>
+                <option value="kg-to-g">Kilograms to Grams</option>
+                <option value="g-to-kg">Grams to Kilograms</option>
+                <option value="kg-to-t">Kilograms to Tons</option>
+                <option value="kg-to-USt">Kilograms to US Tons</option>
+                <option value="kg-to-p">Kilograms to Pounds</option>
+                <option value="g-to-t">grams to Tons</option>
+            </select>
+            <button onclick="convert('mass')">Calculate</button>
+            <span id="mass-result">Result: </span>
+        </div>
+
+        <!-- Data Conversion -->
+        <div class="section">
+            <h2>6. Data</h2>
+            <input type="number" id="data-value" placeholder="Enter the value">
+            <select id="data-converter">
+                <option value="" disabled selected>Choose Data Conversion</option>
+                <option value="bit-to-byte">Bits to Bytes</option>
+                <option value="tyte-to-bit">Bytes to Bits</option>
+                <option value="gb-to-tb">Gigabytes to TeraBytes</option>
+                <option value="tb-to-gb">TeraBytes to Gigabytes</option>
+                <option value="mb-to-kb">MegaBytes to Kilobytes</option>
+                <option value="kb-to-mb">Kilobytes to MegaBytes</option>
+                <option value="gb-to-mb">Gigabytes to Megabytes</option>
+            </select>
+            <button onclick="convert('data')">Calculate</button>
+            <span id="data-result">Result: </span>
+        </div>
+    </div>
+    
+    <script src="./logic1.js"></script>
+</body>
+</html>

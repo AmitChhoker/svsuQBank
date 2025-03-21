@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrology Prediction</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+        <div class="container">
+            <h1>Astrology Prediction</h1>
+            <form id="astroForm">
+                <input type="text" id="name" placeholder="Enter Your Name">
+                <input type="text" id="surname" placeholder="Enter Your Surname">
+                <input type="number" id="day" placeholder="Day" min="1" max="31">
+                <input type="number" id="month" placeholder="Month" min="1" max="12">
+                <input type="number" id="year" placeholder="Year" min="1900" max="2025">
+                <button onclick="getAstrology()">Get Astrology</button>
+            </form>
+            <div class="result" id="result"></div>
+        </div>
+        <!-- <div class="root">
+            <h2>Success in life depends on effort,<br> decisions, and knowledge, <br>not just planetary positions.</h2>
+        </div> -->
+    <script src="./logic.js"></script>
+</body>
+</html>

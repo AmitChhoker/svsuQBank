@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.container{
+    background-color:lightblue;
+    padding: 20px;
+    border-radius: 10px;
+    /* text-align: center; */
+    font-size: 1.6rem;
+}
+h1{
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+#tasks{
+    font-size: 30px;
+}
+button{
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.button_Div{
+    display: flex;
+    justify-content: center;
+}

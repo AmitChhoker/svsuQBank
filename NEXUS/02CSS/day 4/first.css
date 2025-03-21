@@ -1,0 +1,11 @@
+h2{
+    font-size: 30px;
+    width:350px;
+    height: 300px;
+    border: 5px black solid;
+    padding: 40px;
+    margin:20px;
+    border-radius: 20px;
+    background-color: chartreuse;
+    box-sizing: border-box;
+}

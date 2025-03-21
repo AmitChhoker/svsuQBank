@@ -1,0 +1,65 @@
+*{
+    margin:0;
+}
+.orange{
+    background-color: #FF671F;
+    width:100%;
+    height: 33.33vh;
+}
+.chakra {
+    border: 5px navy solid;
+    height: 33.33vh;
+    width: 33.33vh;
+    margin: auto;
+    border-radius: 50%;
+    position: relative;
+}
+
+.spoke {
+    width: 7px;
+    height: 235px;
+    background-color: #000080;
+    position: absolute;
+    top: 2%;
+    left: 49%;
+    transform-origin:center;
+    transform: translate(-50%, -100%) rotate(0deg); 
+}
+
+.chakra div:nth-child(1)  { transform: rotate(0deg); }
+    .chakra div:nth-child(2)  { transform: rotate(15deg); }
+    .chakra div:nth-child(3)  { transform: rotate(30deg); }
+    .chakra div:nth-child(4)  { transform: rotate(45deg); }
+    .chakra div:nth-child(5)  { transform: rotate(60deg); }
+    .chakra div:nth-child(6)  { transform: rotate(75deg); }
+    .chakra div:nth-child(7)  { transform: rotate(90deg); }
+    .chakra div:nth-child(8)  { transform: rotate(105deg); }
+    .chakra div:nth-child(9)  { transform: rotate(120deg); }
+    .chakra div:nth-child(10) { transform: rotate(135deg); }
+    .chakra div:nth-child(11) { transform: rotate(150deg); }
+    .chakra div:nth-child(12) { transform: rotate(165deg); }
+    .chakra div:nth-child(13) { transform: rotate(180deg); }
+    .chakra div:nth-child(14) { transform: rotate(195deg); }
+    .chakra div:nth-child(15) { transform: rotate(210deg); }
+    .chakra div:nth-child(16) { transform: rotate(225deg); }
+    .chakra div:nth-child(17) { transform: rotate(240deg); }
+    .chakra div:nth-child(18) { transform: rotate(255deg); }
+    .chakra div:nth-child(19) { transform: rotate(270deg); }
+    .chakra div:nth-child(20) { transform: rotate(285deg); }
+    .chakra div:nth-child(21) { transform: rotate(300deg); }
+    .chakra div:nth-child(22) { transform: rotate(315deg); }
+    .chakra div:nth-child(23) { transform: rotate(330deg); }
+    .chakra div:nth-child(24) { transform: rotate(345deg); }
+.green{
+    background-color: #046A38;
+    width: 100%;
+    height: 33.33vh;
+}   
+.mid{
+    border:5px;
+    border-color:  #06038D;
+    margin:auto;
+    height:100px;
+    width:100px;
+
+}

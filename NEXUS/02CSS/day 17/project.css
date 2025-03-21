@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+}
+.container{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.orbit{
+    height: 100px;
+    width: 100px;
+    position: relative;
+}
+.sun{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 47px;
+    right: 50px;
+}
+.mars{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: rgb(237, 64, 64);
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: mar;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.orbital{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 1px dashed white;
+    position: absolute;
+    right: 2px;
+    bottom: .1px;
+}
+@keyframes mar {
+    from{
+        transform: rotate(0deg) translate(100px) rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg) translate(100px) rotate(-360deg);
+    }
+}
+.earth{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: skyblue;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: ear;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@keyframes ear {
+    from{
+        transform: rotate(0deg) translate(200px) rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg) translate(200px) rotate(-360deg);
+    }
+}
+

@@ -1,0 +1,124 @@
+.premiere{
+    color: black;
+    /* display: flex; */
+    /* align-items: center; */
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 70px;
+    color: white;
+}
+.brand{
+    color: white;
+    /* display: flex; */
+    /* text-align: center; */
+    font-size: 1.5rem;
+}
+.Frieday{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(60, 60, 169);
+    margin-bottom: 0px;
+}
+@media(max-width:500px){
+    .second{
+        flex-direction: column;
+    }
+    .img1>p{
+        text-align: center;
+    }
+}
+.img1>p{
+    color: white;
+    font-size: 1.3rem;
+}
+
+.images2{
+    height: 400px;
+    box-shadow: 0px 14px 10px rgba(161, 143, 143, 0.7);
+    border-radius: 10px;
+    overflow-x: scroll;
+    
+}
+.second{
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    background-color: rgb(59, 59, 120);
+    padding-top: 20px;
+    transition-property: all;
+    transition-duration: .9s;
+    transition-timing-function: linear;
+}
+.img1{
+    text-align: center;
+    margin: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.img1:hover{
+    transform: scale(1.1);
+}
+@media(max-width:500px)
+{
+    .second{
+        flex-direction: column;
+    }
+    .Music{
+        flex-direction: column;
+    }
+}
+
+.heading{
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    background-color: rgb(112, 102, 102);
+    color: white;
+}
+
+.image3{
+    height: 420px;
+    box-shadow: 0px 14px 10px rgba(161, 143, 143, 0.7);
+    border-radius: 10px;
+    overflow-x: scroll;
+}
+
+.studio{
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 1.7rem;
+    /* justify-content: center; */
+}
+.studio:hover{
+    transform: scale(1.1);
+}
+.studio > h4{
+    font-size: 20px;
+    text-align: left;
+}
+.studio > p{
+    text-align: left;
+}
+@media (max-width:500px){
+    .studio > h4{
+        text-align: center;
+    }
+    .studio > p{
+        text-align: center;
+    }
+}
+
+.Music{
+    display: flex;
+    overflow-x: scroll;
+    display: flex;
+    justify-content: center;
+    /* margin: 5px; */
+    padding-top: 30px;
+    transition-property: all;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}

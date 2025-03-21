@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, green, blue);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background:url(./background\ img.png);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+.game-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+.container {
+    background: #fdf169;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+
+}
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 5px;
+    margin: 20px auto;
+}
+.cell {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.h1{
+    background-color: chartreuse;
+    border-radius: 5px;
+}
+#restartButton {
+    padding: 10px;
+    background: black;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+#restartButton:hover{
+    background: rgb(79, 69, 69);
+}
+.player {
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+.player img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+.active {
+    transform: scale(1.2);
+}

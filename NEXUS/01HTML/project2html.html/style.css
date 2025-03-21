@@ -1,0 +1,18 @@
+body{
+    font-family:'Times New Roman', Times, serif;
+}
+nav a {
+    margin-right: 20px; 
+    font-size: 25px;
+}
+h1{
+    font-size: 40px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+header{
+    background-color:antiquewhite;
+    padding-bottom: 10px;
+    position: fixed;
+    width:100%;
+    margin-top: -1%;
+}

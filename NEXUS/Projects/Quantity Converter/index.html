@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="root">
+            <input id="number" type="number" placeholder="Enter the Value: ">
+            <label for="converter"></label>
+            <select id="converter">
+                <option value="" disabled selected>Choose the Conversion</option>
+                <option value="kg-to-g">Kilograms to Grams</option>
+                <option value="g-to-kg">Grams to Kilograms</option>
+                <option value="m-to-cm">Meters to Centimeters</option>
+                <option value="cm-to-m">Centimeters to Meters</option>
+                <option value="mm-to-m">Millimeters to Meters</option>
+                <option value="m-to-mm">Meters to Millimeters</option>
+            </select>
+        </div>
+        <button>Calculate</button>
+        <div id="result">Result: </div>
+    </div>
+    <script src="./logic.js"></script>
+</body>
+</html>

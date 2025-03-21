@@ -1,0 +1,34 @@
+.container{
+    background-color: rgb(210, 220, 187);
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: end;
+    justify-content: center;
+
+}
+.box{
+    height: 250px;
+    width:250px;
+    margin: 5px;
+    font-size: 50px;
+    font-weight: bold;
+
+}
+.box1{
+    background-color: coral;
+    border: 5px black solid;
+}
+.box2{
+    background-color: cornflowerblue;
+    border: 5px black solid;
+}
+.box3{
+    background-color: cyan;
+    border: 5px black solid;
+}
+.box4{
+    background-color: darkorange;
+    border: 5px black solid;
+}

@@ -1,0 +1,69 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:url(./image.png);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+h1{
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(to right, red, orange, yellow, green, rgb(0, 255, 26), indigo, rgb(238, 130, 130));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.container{
+    background: rgba(255, 255, 255, 0.7); 
+    backdrop-filter: blur(0px);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.time{
+    display: flex;
+    gap: 30px;
+    font-size: 30px;
+    text-align: center;   
+}
+.time-box{
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 10px;
+    height: 150px;
+    width: 100px;
+    border-color: deeppink;
+}
+.text{
+    display: flex;   
+}
+h2{
+    font-size: 60px;
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(to right, red, orange, yellow, green, rgb(0, 255, 26), indigo, rgb(238, 130, 130));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.amit{
+    display: flex;
+    gap: 100px;
+    justify-content: space-between;
+}
+p{
+    text-transform: uppercase;
+    background: linear-gradient(to right, red, orange, yellow, green, rgb(0, 255, 26), indigo, rgb(238, 130, 130));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.header{
+    margin-top: 0;
+}

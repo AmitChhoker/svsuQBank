@@ -1,0 +1,77 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background:url(./5.png);
+    /* color: white; */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    text-align: center;
+    background: rgba(243, 231, 231, 0.7); 
+    backdrop-filter: blur(0px);
+    padding: 30px;
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-top: 100px;
+}
+h1{
+    font-size: 50px;
+    font-weight: bold;
+}
+button,input{
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+button{
+    background-color: deeppink;
+}
+button:hover{
+    cursor: pointer;
+    background-color: rgb(202, 55, 133);
+}
+#weatherInfo{
+    margin-top: 15px;
+    font-size: 20px;
+    /* font-weight: bold; */
+}
+#shareWeather{
+    background-color: navajowhite;
+}
+
+.forecast-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.forecast-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    text-align: center;
+    min-width: 120px;
+}
+
+.forecast-card img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    input {
+        width: 200px;
+    }
+}

@@ -1,0 +1,17 @@
+.first{
+    background-color: rgb(30, 255, 0);
+    height:200px;
+    width:150px;
+}
+.second{
+    background-color: dodgerblue;
+    height:200px;
+    width:150px;
+}
+span{
+    background-color: deeppink;
+    height: 100px;
+    width:100px;
+    display: inline-block;
+    margin: 30px;
+}

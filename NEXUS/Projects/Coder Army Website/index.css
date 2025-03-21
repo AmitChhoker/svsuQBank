@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Rubik, sans-serif;
+}
+header{
+    width: 100%;
+    height: 80px;
+    background: #fff;
+    padding: 20px 10%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;  /* This will add space between logo, navbar, and buttons */
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    gap: 200px;
+} 
+.logo-img{
+    height: 60px;
+    width: 150px;
+    padding: 1.3rem;
+    cursor: pointer;
+}
+.navbar{
+    padding-top: 2.3rem;
+    font-size: 1.5rem;
+
+}
+@media (max-width:600px){
+    .navbar{
+        flex-direction: column;
+    }
+}
+.navbar :hover{
+    color: orange;
+}
+.button{
+    padding-top: 1.5rem;
+}
+button{
+    font-size: 20px;
+    padding: 15px;
+    width: 120px;
+    height: 50px;
+    border-radius: 10px;
+}
+#login{
+    background-color:orange;
+    color: white;
+    cursor: pointer;
+}
+#login,#Dashboard{
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    margin: 5px;
+    max-width: 50%;
+    background-color: rgb(215, 45, 46);
+    border-color: rgb(215, 45, 46);
+    color: white;
+    border: none;
+    padding-top: .4rem;
+    cursor:pointer;
+}
+/* #Dashboard{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    margin-right: 120px;
+} */
+#login:hover{
+    background-color: blue;
+}
+#Dashboard:hover{
+    background-color: orange;
+}
+@media (max-width: 768px) {
+    /* Fix header layout */
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    /* Ensure buttons move below navigation */
+    .button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px; /* Adjust spacing */
+    }
+
+    .button button {
+        width: 120px;
+    }
+
+    /* Home Section */
+    .Home {
+        flex-direction: column;
+        text-align: center;
+        padding: 100px 10%;
+    }
+
+    .Home-content {
+        width: 100%;
+    }
+
+    .Home-img {
+        width: 100%;
+    }
+
+    .Home-img img {
+        max-width: 100%;
+        height: auto;
+    }
+}

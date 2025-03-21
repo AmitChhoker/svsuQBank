@@ -1,0 +1,11 @@
+.container{
+    height: 200px;
+    width:200px;
+    background-color: chartreuse;
+    border: 5px black solid;
+}
+@media(max-width:400px){
+    .container{
+        background-color:coral;
+    }
+}

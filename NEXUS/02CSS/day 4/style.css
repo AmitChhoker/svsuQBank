@@ -1,0 +1,28 @@
+h1{
+    background-color: aqua;
+    width:50vw;
+    height: 20vw;
+    border: 5px red solid;
+    border-radius: 20px;
+
+    margin:20px 20px 30px 40px;
+}
+ul{
+    background-color: chartreuse;
+}
+p{
+    background-color: darkorange;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 20px;
+    border-style: solid;
+    padding:40px;
+    border-style:dotted
+
+}
+h3{
+    background-color: deeppink;
+    border-style: solid;
+    /* border-left-width: 10px;
+    border-left-color: rgb(115, 255, 0); */
+}

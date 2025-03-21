@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+}
+.container{
+    background-color:rgb(203, 240, 155);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Box{
+    height: 250px;
+    width: 250px;
+    background-color: rgb(13, 0, 255);
+    font-size: 4rem;
+    border: 2px black solid;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-property: all;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+}
+.Box:hover{
+    /* transform: scale(2,2); */
+    /* transform: rotate(360deg); */
+    /* transform:rotatez(10000deg) */
+    /* transform: translatex(200px); */
+    /* transform:perspective(500px) translatez(200px); */
+    transform: scale(1.2);
+}

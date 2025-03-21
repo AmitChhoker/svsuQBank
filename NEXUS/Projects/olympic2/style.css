@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    height: 50%;
+    align-items: center;
+}
+.header{
+    font-size: 30px;
+    display: flex;
+    text-align: baseline;
+}
+.event{
+    font-size: 80px;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #FF9933 47%, white 20%, white 66%, #138808 66%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.event-place{
+    font-size: 20px;
+    display: flex;
+    text-align: baseline;
+}
+.countdown{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: right;
+}
+.days{
+    font-size: 120px;
+    font-weight: bold;
+    margin: 0;
+}
+.text-days{
+    font-size: 25px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.time{
+    display: flex;
+    gap: 30px;
+}
+.time-value{
+    font-size: 50px;
+    font-weight: bold;
+}
+.time-label{
+    font-size: 20px;
+    color: white;
+    /* text-transform: lowercase; */
+    opacity: 0.7;
+    font-weight: bold;
+}
+@media (max-width: 600px)
+{
+    .container,.countdown{
+        flex-direction: column;
+    }
+}
+@media (max-width:500px)
+{
+    .container1{
+        flex-direction: column;
+    }
+    button{
+        align-items: right;
+    }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+ header{
+    background-color: rgb(202, 224, 180);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    box-shadow: 14px 0px 20px white;
+ }
+.container1{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    justify-content: space-evenly;
+}
+.logos{
+    font-size: 30px;
+    font-weight: bold;
+}
+.navbar{
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+button{
+    padding: 10px;
+    border-radius: 10px;
+    margin: 200px;
+    /* font-size: 20px;
+    padding: 15px;
+    width: 120px;
+    height: 50px;
+    border-radius: 10px; */
+}
+/* #login{
+    background-color:orange;
+    color: white;
+    cursor: pointer;
+} */
+#Dashboard{
+    width: 110px;
+}
+#login,#Dashboard{
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    margin: 0px;
+    max-width: 50%;
+    background-color: gray;
+    border-color: rgb(215, 45, 46);
+    color: white;
+    border: none;
+    padding-top: .4rem;
+    cursor:pointer;
+}
+#login:hover,#Dashboard:hover{
+    background-color: #FF9933;
+    color: #138808;
+}
+

@@ -1,0 +1,85 @@
+body{
+    margin: 0;
+    padding: 0;
+    background:url(./insta.png);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.p1 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+}
+p{
+    font-size: 1.5rem;
+}
+.choice {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: capitalize;
+    transition: all 0.3s;
+}
+#root{
+    background-color:orangered;
+    padding: 30px;
+    border-radius: 10px;
+}
+.choice:hover {
+    background-color: #ddd;
+}
+
+#start-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 15px 0;
+    transition: 0.3s;
+}
+
+#start-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Winner display */
+#winner {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+    color:blue;
+}
+.winner{
+    display: flex;
+    justify-content: right;
+}
+.result{
+    display: flex;
+    gap: 30px;
+    
+}

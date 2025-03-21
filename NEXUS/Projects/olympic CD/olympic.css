@@ -1,0 +1,76 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #1f1c2c, #283048);
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+.header{
+    display: flex;
+    text-align: baseline;
+    font-size: 30px;
+}
+.container {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        align-items: center;
+}
+.event-title {
+        font-size: 60px;
+        font-weight: bold;
+        display: flex;
+        text-align: baseline;
+}
+.event-details {
+        font-size: 18px;
+        opacity: 0.8;
+        display: flex;
+        text-align: baseline;
+}
+.countdown{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: right;
+}
+.days {
+    font-size: 120px;
+    font-weight: bold;
+    margin: 0;
+}
+.text-days {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.time{
+    display: flex;
+    gap: 30px;
+}
+.time-box {
+    text-align: center;
+}
+.time-value {
+    font-size: 50px;
+    font-weight: bold;
+}
+.time-label {
+    font-size: 20px;
+    text-transform: lowercase;
+    opacity: 0.7;
+}
+.footer>p{
+    font-size: 20px;
+}
+.footer {
+    position: absolute;
+    bottom: 5px;
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    opacity: 0.7;
+}

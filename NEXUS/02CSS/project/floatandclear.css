@@ -1,0 +1,16 @@
+.rohit{
+    height: 300px;
+    width:auto;
+    float:left;
+    margin-right: 20px;
+    margin-left: 20px; 
+    clear:both;
+}
+.virat{
+    height: 300px;
+    width:auto;
+    margin-right: 20px;
+    margin-left: 20px;
+    float:right;
+    clear:left;
+}

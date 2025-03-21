@@ -1,0 +1,33 @@
+h1{
+    color: blue;
+    text-align: center;
+}
+.container{
+    background-color: rgb(165, 218, 220);
+    height: 700px;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    background-color: rgb(255, 187, 0);
+    width: 300px;
+    height: 300px;
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 100px;
+    /* box-shadow: inset  1px 5px 20px 30px rgb(255, 242, 0);
+    border-radius: 50%; */
+    transition-property:all;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+}
+.box:hover{
+    background-color: fuchsia;
+    width:1000px;
+}

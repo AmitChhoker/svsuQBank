@@ -1,0 +1,131 @@
+.hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../Day12/today/mover.jpg);
+    padding: 2rem;
+}
+.hero h2{
+    background-color: black;
+    color: white;
+    font-size: 1.8rem;
+}
+.hero button{
+    background-color: rgb(231, 23, 23);
+    margin-top: 1rem;
+    font-size: 2rem;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+.hero button:hover{
+    background-color: black;
+}
+.mover{
+    text-align: center;
+    padding:.5rem;
+}
+.mover >h2{
+    font-size: 2rem;
+}
+.images{
+    height: 400px;
+    box-shadow: 0px 14px 10px rgba(27, 24, 24, 0.7);
+    
+}
+.movie{
+    display: flex;
+    overflow-x: scroll;
+    margin: 5px;
+    transition-property: all;
+    transition-duration: .9s;
+    transition-timing-function: linear;
+}
+.card{
+    border: 0.5rem solid rgb(222, 208, 208);
+    background-color: rgb(222, 208, 208);
+    text-align: center;
+    margin-left: 1rem;
+    border-radius: 10px;
+    cursor: pointer; 
+}
+.card:hover{
+    transform:scale(1.2);
+}
+.card >h3{
+    text-align: center;
+    font-size: 1.5rem;
+
+}
+
+.next{
+    text-align: center;
+    margin-top: 3rem; 
+}
+.next >img{
+    max-width: 80%;
+    border-radius: 10px;
+    cursor: pointer; 
+}
+@media(max-width:500px){
+    .logo{
+        flex-direction: column;
+        align-items: center;
+    }
+    .right{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .movie{
+        flex-direction: column;
+    }
+    
+}
+.Live{
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-color: dimgrey;
+}
+
+.movie1{
+    /* padding-left:7.1rem; */
+    /* padding-top: 1rem; */
+    display: flex;
+    align-items: center;
+    overflow-x:auto;
+    margin: 20px;
+    transition-property: all;
+    transition-duration: .9s;
+    transition-timing-function: linear;
+}
+@media(max-width:500px){
+    .movie1{
+        flex-direction: column;
+    }
+}
+.Live_Events{
+    border: 5px white solid;
+    align-items: center;
+    margin-left: 2rem;
+}
+.Live_Events:hover{
+    transform:scale(1.1);
+}
+.images1{
+    height: 300px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 1s ease, box-shadow 1s ease;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    
+}
+.images1:hover{
+    transition: transform 1s ease, box-shadow 1s ease;
+    transform: translateY(-10px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);  
+}

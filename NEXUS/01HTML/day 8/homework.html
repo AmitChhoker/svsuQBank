@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Health Details Form</h1>
+    <form>
+        <!-- personal Information -->
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="name">*Full Name:</label>
+            <input type="text" id="name" name="Full Name" required><br><br>
+
+            <label for="DOB">*Date Of Birth:</label>
+            <input type="date" id="DOB" name="Date of Birth" required><br><br>
+
+            <label for="Gender">*Gender:</label>
+            <select name="gender" id="Gender">
+                <option disabled selected>Select Your Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">other</option>
+            </select><br><br>
+
+            <label for="mob">*Phone Number:</label>
+            <input type="tel" id="mob" name="Phone Number"><br><br>
+        </fieldset>
+
+        <!-- Medical history -->
+        <fieldset>
+            <legend>Medical history</legend>
+            <lable for="BloGrp">*Blood Group:</lable>
+            <select name="Blood Group" id="bloGrp">
+                <option disabled selected>Select Blood Group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB-">AB-</option>
+                <option value="AB+">AB+</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select><br><br>
+
+            <p>*Do you wear glasses or contact lenses?</p>
+            <input type="radio" id="yes" name="yes" value="wear">
+            <label for="yes">Yes</label><br>
+            <input type="radio" id="No" name="No" value="Not wear">
+            <label for="No">No</label><br><br>
+
+            <label for="msg">*Pre-existing Conditions:</label><br>
+            <textarea id="msg" name="Conditions" rows="10" cols="100" placeholder="List any Pre-existing medical Conditions"></textarea><br><br>
+
+            <p>*Allergies:</p>
+            <input type="checkbox" id="Polliyo" value="Pollen">
+            <label for="Polliyo">Pollen</label><br>
+            <input type="checkbox" id="Pean" value="Peanuts">
+            <label for="Pean">Peanuts</label><br>
+            <input type="checkbox" id="late" value="Latex">
+            <label for="late">Latex</label><br>
+            <input type="checkbox" id="Fine" value="None">
+            <label for="Fine">None</label><br><br>
+
+            <label for="msg2">*Current Medications:</label><br>
+            <textarea id="msg2" name="Current_Medications" rows="10" cols="100" placeholder="List any Pre-existing medical Conditions"></textarea><br><br>
+        </fieldset>
+
+        <!--Emergency Contact -->
+        <fieldset>
+            <legend>Emergency Contact</legend>
+            <label for="EmergName">*Emergency Contact Name:</label>
+            <input type="text" id="EmergName" name="Emergency_Name"><br><br>
+            
+            <label for="EmergPhone">*Emergency Contact Phone:</label>
+            <input type="tel" id="EmergPhone" name="Emergency_PhoneNo."><br><br>
+
+            <label for="RelationContactPhone">*Relationship to Emergency Contact:</label>
+            <input type="tel" id="RelationContactPhone" name="RelationContactNo."><br><br>
+        </fieldset>
+        <button>Submit</button>
+    </form>
+</body>
+</html>

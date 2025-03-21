@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="root" id="root">
+            <p id="player1">Player 1: </p>  
+            <div class="p1">
+                <div class="choice rock" data-choice="Rock">🪨</div>
+                <div class="choice paper" data-choice="Paper">📄</div>
+                <div class="choice scissor" data-choice="Scissor">✂️</div>
+            </div>
+
+            <div class="result">
+                <button id="start-btn">Start</button>
+                <div class="winner" id="winner"></div>
+            </div>
+
+            <p id="player2">Player 2: </p>
+            <div class="p1">
+                <div class="choice rock" data-choice="Rock">🪨</div>
+                <div class="choice paper" data-choice="Paper">📄</div>
+                <div class="choice scissor" data-choice="Scissor">✂️</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./logic.js"></script>
+</body>
+</html>

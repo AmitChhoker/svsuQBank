@@ -1,0 +1,13 @@
+div > p{
+    color:rgb(255, 0, 102);
+    background-color: rgb(0, 255, 34);
+    font-size: 3em;
+}
+body{
+    background-image: url(./image\ copy.png);
+    background-size: cover;
+}
+div{
+    color: rgb(199, 20, 20);
+    font-family:Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <form action="url_server">
+        <fieldset>
+        <legend>User info</legend>
+        <label for="DOB">Date Of Birth:</label>
+        <input type="date" id="DOB" name="Date Of Birth" min="2001-01-01" max="2005-12-31">
+        <br><br>
+        <label for="school">School Name:</label>
+        <input type="text" id="school" name="school_name">
+        <br><br>
+
+        <label for="class">Class</label>
+        <select name="class" id="class">
+            <option disabled selected >Enter your Class</option>
+            <option value="10th">10</option>
+            <option value="12th">12</option>
+            <option value="graduation">Graduation</option>
+        </select>
+        <br><br>
+
+        <label for="board">Board:</label>
+        <select name="classboard" id="board">
+            <option disabled selected>Select Your Board</option>
+            <option value="HBSE">HBSE</option>
+            <option value="RBSE">RBSE</option>
+            <option value="CBSE">CBSE</option>
+            <option value="PBSE">PBSE</option>
+            <option value="UPBSE">UPBSE</option>
+        </select>
+
+        <br><br>
+        <label for="passing">Year of Passing</label>
+        <input type="Number" id="passing" name="passing_year" min="2023" max="2027"></input>
+
+        <br><br>
+        <button>Submit</button>
+        <button>Print</button>
+        </fieldset>
+    </form>
+ </body>
+ </html>

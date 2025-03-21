@@ -1,0 +1,117 @@
+.first{
+    margin-left: 130px;
+}
+.second{ 
+    position: sticky;                      
+    top:0px; 
+    background-color: white; 
+    padding-left: 65px;
+    z-index: 2000;
+}
+.third{
+    height: 500px;
+    width:auto;
+    background-color: rgb(215, 201, 201);
+}
+.img10{
+    height:50px;
+    width:50px;
+    border-radius: 30%;
+}
+.dine,.Delive,.nlife{
+    
+    position: relative;
+    bottom:10px;
+    font-size: 15px;
+    left:10px;
+    color:rgb(151, 134, 134); 
+}
+.dining,.delivery,.nightlife{
+    margin-left: 60px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+
+}
+/* .delivery,.nightlife{
+    margin-left: 90px;
+} */
+.Collect{
+    font-size: 40px;
+}
+.head{
+    background-color: white;
+    margin-bottom: 10px;
+    box-shadow: 0px 4px 10px rgba(188, 182, 182, 0.7);
+    z-index: 1000;
+}
+.brand{
+    color: red;
+    margin-right: 200px;
+    font-weight: bold;
+    font-size: 30px;
+}
+.searching{
+    width:350px;
+    height:25px;
+    margin-right: 10px;
+    position:relative;
+    bottom: 13px;
+}
+.b1,.b2{
+    height:30px;
+    width:80px;
+    position: relative;
+    bottom:13px;
+    font-size:16px;
+    margin: 8px;
+    border:none;
+    border-radius: 10px;
+    color:gray;
+    background-color: rgb(228, 222, 214);
+}
+.a1,.a2{
+    height: 30px;
+    position: relative;
+    bottom:13px;
+    font-size:16px;
+    margin: 8px;
+    border:none;
+    border-radius: 10px;
+    color:gray;
+    background-color: rgb(228, 222, 214);
+
+}
+button:hover{
+    background-color: white;
+    cursor: pointer;
+}
+.NImages{
+    position: absolute;
+}
+.img1_1,.img1_2,.img1_3,.img1_4{
+    height: 340px;
+    width:300px;
+    border-radius: 8px;
+    position: relative;
+    left:160px;
+    top:60px;
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+.img1_1:hover,.img1_2:hover,.img1_3:hover,.img1_4:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.Collect{
+    position: relative;
+    top:30px;
+    left:160px;
+}
+.para{
+    position: relative;
+    top:34px;
+    left: 160px;
+    font-size: 25px;
+    color: rgba(0, 0, 0, 0.781);
+}

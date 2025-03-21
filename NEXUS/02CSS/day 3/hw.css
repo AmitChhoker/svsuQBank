@@ -1,0 +1,72 @@
+body{
+    font-family: 'Verdana', sans-serif;
+    background-color: #f0f0f0;
+}
+header{
+    background-color: #1adf21;
+}
+h1{
+    color: aliceblue;
+    font-size: 3em;
+}
+header h2{
+    color:crimson;
+    font-size: 1.5em;
+}
+#CSS{
+    background-color: white;
+}
+
+#CSS h2{
+    color:blue;
+    font-size: 2em;
+}
+#CSS h3{
+    color:fuchsia;
+    font-size: 1.5em;
+}
+#CSS p{
+    color: #555;
+}
+#CSS ul{
+    color: #555
+}
+
+#JS {
+    background-color: white;
+    color: #555;
+}
+#JS h2{
+    color:orangered;
+    font-size: 2em;
+}
+#JS h3{
+    color:darkorange;
+    font-size: 1.5em;
+}
+table{
+    margin: 20px auto;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+}
+thead{
+    background-color:greenyellow;
+}
+
+#WEB{
+    background-color: white;
+    color: #555;
+}
+#WEB h2{
+    color:magenta;
+    font-size: 2em;
+}
+
+footer{
+    background-color: palegreen;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding-left: 50%;
+}
+

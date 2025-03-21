@@ -1,0 +1,83 @@
+body{
+    background-color: rgb(228, 222, 214);
+}
+*{
+    margin: 0;;
+}
+.card1,.card2,.card3,.card4,.card5,.card6{
+    display: inline-block;
+    margin-left: 65px;
+    margin-right:20px;
+    margin-top: 20px;
+    margin-right: 0;
+    cursor:pointer;
+    border:10px solid rgb(228, 222, 214); 
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+}
+.card1:hover,.card2:hover,.card3:hover,.card4:hover,.card5:hover,.card6:hover{
+    background-color: white;
+    border-color: white;
+}
+.Restaurant,.Location,.food{
+    position:relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.Box{
+    display: inline-block;
+}
+.img1,.img2,.img3{
+    height:250px;
+    width:400px;
+    border-radius: 20px;
+}
+.img4{
+    height: 250px;
+    width:400px;
+    border-radius: 20px;
+}
+.img5{
+    height:250px;
+    width:400px;
+    border-radius: 20px;
+}
+.img6{
+    height:250px;
+    width:400px;
+    border-radius: 20px;
+}
+.Restaurant_Name{
+    font-size:20px;
+    font-weight: bold;
+}
+.Rating{
+    background-color: green;
+    color: white;
+    height: 20px;
+    padding: 2px;
+    position: absolute;
+    right:5px;
+    border-radius: 8px;
+
+}
+.Price,.Distance{
+    position:absolute;
+    right:5px;
+
+}
+.food,.Place{
+    font-size:15px;
+    color:rgb(150, 140, 140);
+    overflow: auto;
+}
+
+.Distance{
+    font-weight:bold;
+    font-size: 15px;
+}
+
+/* .card4,.card5,.card6{
+    margin-top: 20px;
+} */
+
