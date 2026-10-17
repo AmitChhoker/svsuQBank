@@ -10,9 +10,9 @@ import { Link } from "react-router";
 
 import "../../footer.css";
 import "../../sfet.css";
-import "../../sfmsr.css";
+import "../../SFMSR.css";
 import "../../sfa.css";
-import "../../sfash.css";
+import "../../SFASH.css";
 
 import Footer from "./footer";
 import SocialMediaBar from "./SocialMediaBar";
