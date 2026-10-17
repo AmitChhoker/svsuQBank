@@ -1,0 +1,185 @@
+/* ============================================================
+   SocialMediaBar.css — modern, aesthetic, lag-free
+   Vertical floating bar on the left edge
+   ============================================================ */
+
+.smb {
+  position: fixed;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-50%);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 10px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 999px;
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  animation: smbIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes smbIn {
+  from { opacity: 0; transform: translateY(-50%) translateX(-30px); }
+  to   { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+/* ---------- Glow lines top/bottom ---------- */
+.smb-line {
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, #c7d2fe, transparent);
+}
+
+.smb-line-top {
+  background: linear-gradient(90deg, transparent, #6366f1, transparent);
+}
+
+.smb-line-bottom {
+  background: linear-gradient(90deg, transparent, #ec4899, transparent);
+}
+
+/* ---------- List ---------- */
+.smb-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.smb-item {
+  position: relative;
+}
+
+/* ---------- Link ---------- */
+.smb-link {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #475569;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.24s ease, background 0.24s ease, color 0.24s ease;
+}
+
+.smb-icon {
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  transition: transform 0.24s ease;
+}
+
+/* Icon lift + colour on hover */
+.smb-link:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.smb-link:hover .smb-icon {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+/* Per-network hover backgrounds */
+.smb-link.smb-whatsapp:hover { background: linear-gradient(135deg, #25d366, #128c7e); }
+.smb-link.smb-instagram:hover {
+  background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+}
+.smb-link.smb-youtube:hover { background: linear-gradient(135deg, #ff0000, #c00); }
+.smb-link.smb-linkedin:hover { background: linear-gradient(135deg, #0a66c2, #004182); }
+.smb-link.smb-facebook:hover { background: linear-gradient(135deg, #1877f2, #0d5bc4); }
+.smb-link.smb-github:hover { background: linear-gradient(135deg, #24292e, #0d1117); }
+
+/* Hover shadow per network */
+.smb-link.smb-whatsapp:hover { box-shadow: 0 8px 20px rgba(37, 211, 102, 0.45); }
+.smb-link.smb-instagram:hover { box-shadow: 0 8px 20px rgba(221, 42, 123, 0.45); }
+.smb-link.smb-youtube:hover { box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4); }
+.smb-link.smb-linkedin:hover { box-shadow: 0 8px 20px rgba(10, 102, 194, 0.4); }
+.smb-link.smb-facebook:hover { box-shadow: 0 8px 20px rgba(24, 119, 242, 0.4); }
+.smb-link.smb-github:hover { box-shadow: 0 8px 20px rgba(36, 41, 46, 0.5); }
+
+/* ---------- Tooltip ---------- */
+.smb-tooltip {
+  position: absolute;
+  left: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: #ffffff;
+  background: #0f172a;
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+}
+
+.smb-tooltip::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: #0f172a;
+}
+
+.smb-link:hover .smb-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ---------- Dark mode support ---------- */
+body.dark-mode .smb {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .smb-link {
+  color: #cbd5e1;
+}
+
+body.dark-mode .smb-link:hover {
+  color: #ffffff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .smb {
+    display: none;
+  }
+}
+
+/* ---------- Accessibility ---------- */
+.smb-link:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smb,
+  .smb *,
+  .smb *::before,
+  .smb *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

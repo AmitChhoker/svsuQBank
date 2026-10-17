@@ -1,0 +1,6 @@
+node_modules/
+.env
+.parcel-cache/
+dist/
+server/node_modules/
+server/.envgit init -b main

@@ -1,0 +1,349 @@
+/* ===== MODERN SEARCH BAR STYLES ===== */
+.sfet-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1rem;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 700px;
+  z-index: 100;
+}
+
+.sfet-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #ffd700;
+  font-weight: 900;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(135deg, #ffd700, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.sfet-search-box {
+  position: relative;
+  width: 100%;
+  z-index: 100;
+}
+
+.sfet-search-box input {
+  width: 100%;
+  padding: 20px 60px 20px 25px;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  font-size: 1.2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: #333;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-weight: 500;
+}
+
+.sfet-search-box input:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 12px 40px rgba(255, 215, 0, 0.3);
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+}
+
+.sfet-search-box input::placeholder {
+  color: #666;
+  font-weight: 500;
+}
+
+.sfet-search-box .search-icon {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  color: #1a237e;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+}
+
+.sfet-search-box input:focus + .search-icon {
+  color: #ff6b35;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.sfet-search-box .dropdown {
+  position: absolute;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  margin-top: 12px;
+  padding: 0;
+  list-style: none;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: slideDown 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dropdown li {
+  padding: 16px 25px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.dropdown li:last-child {
+  border-bottom: none;
+}
+
+.dropdown li:hover,
+.dropdown li.highlighted {
+  background: linear-gradient(135deg, #1a237e, #283593);
+  color: white;
+  transform: translateX(8px);
+  border-radius: 12px;
+  margin: 4px 8px;
+}
+
+.dropdown li::before {
+  content: '📄';
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.no-result {
+  color: #666;
+  text-align: center;
+  padding: 30px 20px;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.sfet-iframe-box {
+  margin-top: 3rem;
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Wrapper for positioning */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Additional Search Styles */
+.search-bar-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 40px;
+  padding: 12px 24px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-bar-container input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font-size: 1.1rem;
+  padding: 8px 16px;
+  width: 250px;
+  font-weight: 500;
+}
+
+.search-bar-container input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.search-bar-container button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 1.3rem;
+  margin-left: 12px;
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.search-bar-container button:hover {
+  color: #ffd700;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.overlay-heading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+  background: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .sfet-main {
+    max-width: 600px;
+  }
+  
+  .sfet-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .sfet-main {
+    padding: 3rem 1rem;
+    max-width: 90%;
+  }
+
+  .sfet-title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .sfet-search-box input {
+    font-size: 1.1rem;
+    padding: 18px 55px 18px 22px;
+  }
+
+  .sfet-search-box .search-icon {
+    font-size: 1.3rem;
+    right: 22px;
+  }
+
+  .search-bar-container {
+    padding: 10px 20px;
+  }
+
+  .search-bar-container input {
+    width: 200px;
+    font-size: 1rem;
+  }
+
+  .search-bar-container button {
+    font-size: 1.2rem;
+  }
+
+  .overlay-heading {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-wrapper {
+    width: 100%;
+  }
+  .sfet-main {
+    padding: 2rem 1rem;
+    max-width: 70%;
+  }
+
+  .sfet-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .sfet-search-box input {
+    font-size: 1rem;
+    padding: 16px 50px 16px 20px;
+  }
+
+  .sfet-search-box .search-icon {
+    font-size: 1.2rem;
+    right: 20px;
+  }
+
+  .dropdown li {
+    padding: 14px 20px;
+    font-size: 0.95rem;
+  }
+
+  .search-bar-container {
+    flex-direction: row;
+    padding: 8px 16px;
+    width: 90%;
+  }
+
+  .search-bar-container input {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .search-bar-container button {
+    font-size: 1.1rem;
+    margin-left: 8px;
+  }
+
+  .overlay-heading {
+    font-size: 1.5rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .sfet-search-box input {
+    border-color: #000000;
+    background: #ffffff;
+  }
+  
+  .dropdown {
+    background: #ffffff;
+    border: 2px solid #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .sfet-search-box input,
+  .dropdown,
+  .search-bar-container button {
+    transition: none;
+  }
+  
+  .dropdown {
+    animation: none;
+  }
+}

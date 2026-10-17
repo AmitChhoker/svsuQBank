@@ -1,0 +1,510 @@
+/* ============================================================
+   SFA.css — Skill Faculty of Agriculture
+   Modern, light, lag-free
+   ============================================================ */
+
+:root {
+  --sfa-primary: #16a34a;
+  --sfa-primary-dark: #15803d;
+  --sfa-primary-soft: #dcfce7;
+  --sfa-accent: #f59e0b;
+  --sfa-pink: #ec4899;
+
+  --sfa-text: #0b1220;
+  --sfa-text-soft: #475569;
+  --sfa-muted: #94a3b8;
+  --sfa-bg: #f7f8fc;
+  --sfa-surface: #ffffff;
+  --sfa-border: #e5e9f2;
+
+  --sfa-shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --sfa-shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --sfa-shadow-md: 0 10px 24px rgba(15, 23, 42, 0.08);
+  --sfa-shadow-lg: 0 20px 45px rgba(15, 23, 42, 0.12);
+
+  --sfa-r-sm: 10px;
+  --sfa-r: 14px;
+  --sfa-r-lg: 24px;
+  --sfa-t: 0.22s ease;
+}
+
+/* ============================================================
+   PAGE
+   ============================================================ */
+.sfa-page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 24px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.sfa-page * {
+  box-sizing: border-box;
+}
+
+/* Soft agriculture-tinted background */
+body {
+  background:
+    radial-gradient(900px 500px at 100% -100px, rgba(22, 163, 74, 0.10), transparent 60%),
+    radial-gradient(800px 500px at -100px 100%, rgba(245, 158, 11, 0.08), transparent 60%),
+    #f7f8fc;
+  background-attachment: fixed;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.sfa-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 60px 50px;
+  margin: 24px 0 48px;
+  border-radius: var(--sfa-r-lg);
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  border: 1px solid var(--sfa-border);
+  box-shadow: var(--sfa-shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.sfa-hero::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(22, 163, 74, 0.12), transparent 70%);
+  pointer-events: none;
+}
+
+.sfa-hero::after {
+  content: "";
+  position: absolute;
+  bottom: -120px;
+  left: -80px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.14), transparent 70%);
+  pointer-events: none;
+}
+
+.sfa-hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.sfa-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: var(--sfa-primary-soft);
+  color: var(--sfa-primary-dark);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid #bbf7d0;
+  margin-bottom: 20px;
+}
+
+.sfa-badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sfa-primary);
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.15);
+}
+
+.sfa-title {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--sfa-text);
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, #16a34a 0%, #65a30d 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sfa-sub {
+  margin: 0 0 30px;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--sfa-text-soft);
+  max-width: 500px;
+}
+
+/* ---------- CTA row ---------- */
+.sfa-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.sfa-cta-primary,
+.sfa-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: var(--sfa-t);
+  cursor: pointer;
+}
+
+.sfa-cta-primary {
+  color: #fff;
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  box-shadow: 0 10px 22px rgba(22, 163, 74, 0.4);
+}
+
+.sfa-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(22, 163, 74, 0.5);
+  gap: 12px;
+}
+
+.sfa-cta-primary i {
+  font-size: 0.78rem;
+  transition: transform var(--sfa-t);
+}
+
+.sfa-cta-primary:hover i {
+  transform: translateX(3px);
+}
+
+.sfa-cta-secondary {
+  color: var(--sfa-text-soft);
+  background: #fff;
+  border: 1px solid var(--sfa-border);
+  box-shadow: var(--sfa-shadow-xs);
+}
+
+.sfa-cta-secondary:hover {
+  color: var(--sfa-primary-dark);
+  border-color: var(--sfa-primary);
+  transform: translateY(-2px);
+}
+
+/* ---------- Hero art ---------- */
+.sfa-hero-art {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  min-height: 300px;
+}
+
+.art-glow {
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(22, 163, 74, 0.25), transparent 70%);
+  filter: blur(50px);
+}
+
+.hero-img {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(22, 163, 74, 0.22));
+  animation: floatSFA 6s ease-in-out infinite;
+}
+
+@keyframes floatSFA {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50%      { transform: translateY(-14px) rotate(1deg); }
+}
+
+/* ---------- Floating chips ---------- */
+.art-chip {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: var(--sfa-shadow-md);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--sfa-text);
+  border: 1px solid var(--sfa-border);
+  animation: chipFloat 5s ease-in-out infinite;
+}
+
+.art-chip i {
+  font-size: 0.95rem;
+}
+
+.art-chip-1 {
+  top: 8%;
+  left: 0;
+  color: var(--sfa-primary-dark);
+}
+
+.art-chip-1 i { color: var(--sfa-primary); }
+
+.art-chip-2 {
+  bottom: 8%;
+  right: 0;
+  color: var(--sfa-pink);
+  animation-delay: -2.5s;
+}
+
+.art-chip-2 i { color: var(--sfa-pink); }
+
+@keyframes chipFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* ============================================================
+   FEATURES
+   ============================================================ */
+.sfa-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin: 0 0 70px;
+}
+
+.sfa-feature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 22px;
+  background: #fff;
+  border: 1px solid var(--sfa-border);
+  border-radius: var(--sfa-r);
+  box-shadow: var(--sfa-shadow-xs);
+  transition: var(--sfa-t);
+}
+
+.sfa-feature:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sfa-shadow-md);
+  border-color: #bbf7d0;
+}
+
+.feat-ico {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  color: var(--sfa-primary-dark);
+  font-size: 1.1rem;
+}
+
+.sfa-feature h4 {
+  margin: 0 0 2px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--sfa-text);
+}
+
+.sfa-feature p {
+  margin: 0;
+  font-size: 0.83rem;
+  color: var(--sfa-text-soft);
+}
+
+/* ============================================================
+   PROGRAMS BLOCK
+   ============================================================ */
+.sfa-block {
+  margin: 0 0 80px;
+}
+
+.sfa-block-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.sfa-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  margin-bottom: 10px;
+  border-radius: 999px;
+  background: var(--sfa-primary-soft);
+  color: var(--sfa-primary-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid #bbf7d0;
+}
+
+.sfa-block-head h2 {
+  margin: 0 0 6px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--sfa-text);
+}
+
+.sfa-block-head p {
+  margin: 0;
+  font-size: 0.94rem;
+  color: var(--sfa-text-soft);
+}
+
+/* ---------- Program grid wrapper ---------- */
+.sfa-programs {
+  display: block;
+}
+
+/* Style whatever ProgramCard renders inside SFA */
+.sfa-programs > * {
+  border-radius: var(--sfa-r);
+}
+
+/* ============================================================
+   LEGACY CLASSES (kept so nothing breaks if reused)
+   ============================================================ */
+.sfa {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 24px 80px;
+}
+
+.section-container {
+  display: contents;
+}
+
+.other_img {
+  display: flex;
+  justify-content: center;
+}
+
+.img4 {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.faculty-names h1,
+.heading h2 {
+  margin: 0;
+  color: var(--sfa-text);
+}
+
+.faculty-names h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.heading h2 {
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+  font-weight: 700;
+}
+
+.left-section {
+  margin-top: 24px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 960px) {
+  .sfa-hero {
+    grid-template-columns: 1fr;
+    padding: 44px 30px;
+    text-align: center;
+  }
+
+  .sfa-hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sfa-sub { margin-left: auto; margin-right: auto; }
+
+  .sfa-cta-row { justify-content: center; }
+
+  .hero-img { max-width: 300px; }
+
+  .art-chip-1 { left: 5%; top: 4%; }
+  .art-chip-2 { right: 5%; bottom: 4%; }
+}
+
+@media (max-width: 640px) {
+  .sfa-page { padding: 16px 14px 60px; }
+
+  .sfa-hero {
+    padding: 36px 22px;
+    border-radius: var(--sfa-r);
+    margin-bottom: 36px;
+  }
+
+  .sfa-title { font-size: 1.75rem; }
+  .sfa-sub { font-size: 0.95rem; }
+
+  .sfa-cta-row { flex-direction: column; width: 100%; }
+  .sfa-cta-primary,
+  .sfa-cta-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sfa-block { margin-bottom: 60px; }
+
+  .sfa-block-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sfa-features { gap: 14px; margin-bottom: 50px; }
+
+  .hero-img { max-width: 240px; }
+
+  .art-chip {
+    padding: 7px 12px;
+    font-size: 0.74rem;
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+.sfa-cta-primary:focus-visible,
+.sfa-cta-secondary:focus-visible {
+  outline: 3px solid var(--sfa-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

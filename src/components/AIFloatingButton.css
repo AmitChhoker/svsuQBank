@@ -1,0 +1,159 @@
+.ai-feedback-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: Helvetica, Verdana, sans-serif;
+}
+
+/* Rounded floating Feedback Button */
+.feedback-button {
+  background: linear-gradient(135deg, #4CAF50, #2e7d32);
+  color: white;
+  padding: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-bottom: 14px;
+  display: flex;
+  gap:10px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
+.feedback-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Ask AI Button Style Fix */
+.ai-button-container {
+  background: linear-gradient(to right, #007bff, #0056b3);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 200;
+}
+.ai-button-container:hover {
+  background: linear-gradient(to right, #0056b3, #004494);
+  transform: translateY(-1px);
+}
+.ai-icon {
+  font-size: 20px;
+}
+.ai-text {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Main Form Styling */
+.feedback-form {
+  background: linear-gradient(135deg, #e3f2fd, #fce4ec); /* Light blue + pinkish */
+  padding: 24px;
+  border-radius: 20px;
+  width: 320px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: Helvetica, Verdana, sans-serif;
+  backdrop-filter: blur(6px);
+  color: #333;
+  z-index: 0;
+}
+
+/* Inputs and Textarea */
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.4s ease;
+  background: #fff;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+  resize: none; /* ⛔ remove resizable UI */
+  color: #222;
+  font-family: Helvetica, Verdana, sans-serif;
+}
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+  border-color: #007bff;
+  background-color: #fefefe;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Placeholder animation */
+.feedback-form input::placeholder,
+.feedback-form textarea::placeholder {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+.feedback-form input:focus::placeholder,
+.feedback-form textarea:focus::placeholder {
+  opacity: 0.3;
+}
+
+/* Submit Button */
+.feedback-form button {
+  background: linear-gradient(to right, #007bff, #0056b3);
+  border: none;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.feedback-form button:hover {
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
+  transform: translateY(-1px);
+}
+.feedback-form button::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.5);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 0;
+  transition: width 0.6s ease, height 0.6s ease;
+}
+.feedback-form button:hover::after {
+  width: 200%;
+  height: 200%;
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ai-button-container{
+  z-index: 200;
+}

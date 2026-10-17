@@ -1,0 +1,238 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.top-trends {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.top-trends h1 {
+  font-size: 2rem;
+  margin: 0;
+  padding: 5px 15px;
+  background: linear-gradient(to right, #edb406a2, #fffae39c);
+  color: #333;
+  border-radius: 8px;
+  display: inline-block;
+  animation: fadeIn 2s ease;
+  margin-top: 2rem;
+}
+
+/* Feeder Section */
+.feeder-section {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+  margin-bottom: 70px;
+}
+
+.feeder-toggle {
+  cursor: pointer;
+  background-color: chartreuse;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2b3990;
+  padding: 4px 12px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.feeder-toggle:hover {
+  background-color: rgb(87, 151, 23);
+  color: white;
+}
+
+/* Feeder Content */
+.feeder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.feeder-classes,
+.feeder-years,
+.feeder-subjects {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.feeder-classes h4,
+.feeder-years h4,
+.feeder-subjects h4 {
+  font-weight: bold;
+  color: #2b3990;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.feeder-class-button,
+.feeder-year-button,
+.feeder-subject-button {
+  width: 80%;
+  padding: 0.5rem;
+  margin-bottom: 0.4rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.feeder-class-button {
+  background-color: #c9dcfc;
+  color: #2b3990;
+}
+
+.feeder-year-button {
+  background-color: #e4f7d2;
+  color: #2b3990;
+}
+
+.feeder-subject-button {
+  background-color: #fde2e2;
+  color: #a12323;
+}
+
+.feeder-class-button:hover {
+  background-color: #a3c4ff;
+  color: black;
+}
+
+.feeder-year-button:hover {
+  background-color: #c8e8a4;
+  color: black;
+}
+
+.feeder-subject-button:hover {
+  background-color: #fabbbb;
+  color: black;
+}
+
+/* Subject Links */
+.subject-link {
+  display: block;
+  width: 80%;
+  margin: 0.3rem auto;
+  padding: 0.4rem;
+  text-align: left;
+  border-radius: 0.4rem;
+  background-color: #f0f0f0;
+  color: #1a73e8;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.subject-link:hover {
+  background-color: #dbe8fd;
+  text-decoration: underline;
+}
+
+.subject-link.disabled {
+  color: gray;
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: #e0e0e0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .feeder-section {
+    width: 95%;
+    padding: 1rem 0.8rem;
+  }
+
+  .feeder-class-button,
+  .feeder-year-button,
+  .feeder-subject-button,
+  .subject-link {
+    font-size: 0.95rem;
+    width: 90%;
+  }
+
+  .top-trends h1 {
+    font-size: 1.5rem;
+    padding: 4px 10px;
+  }
+
+  .feeder-toggle {
+    font-size: 1.1rem;
+    padding: 3px 10px;
+  }
+}
+
+/* Animations (Optional) */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+ 
+/* css of images  */
+/* .feeder-school-img {
+  width: 100vw;
+  height: 100vh; 
+  position: relative;
+  overflow: hidden;
+}
+
+.img-slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+}
+
+.img-slide.first {
+  opacity: 1;
+  animation: fadeOutFirst 8s ease forwards;
+}
+
+.img-slide.second {
+  opacity: 0;
+  animation: fadeInSecond 8s ease 8s forwards;
+}
+
+@keyframes fadeOutFirst {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInSecond {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+} */
