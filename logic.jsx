@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { HashRouter, Routes, Route } from "react-router";
 
 import "./footer.css";
 import ChatAIPage from "./src/pages/ChatAIPage";
@@ -16,7 +16,7 @@ import UploadQuestionPaper from "./src/components/UploadQuestionPaper";
 export default function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<SFET />} />
           <Route path="/SFASH" element={<SFASH />} />
@@ -26,9 +26,9 @@ export default function App() {
           <Route path="/Admin" element={<Admin />} />
           <Route path="/LoginForm" element={<LoginForm />} />
           <Route path="/FeederSchool" element={<FeederSchool />} />
-          <Route path="/UploadQuestionPaper" element={<UploadQuestionPaper />} />
+          <Route path="/QBankUpload" element={<UploadQuestionPaper />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
