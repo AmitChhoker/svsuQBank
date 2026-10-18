@@ -15,9 +15,6 @@ import {
 
 const BACKEND_URL = "https://qbankbackend.onrender.com";
 
-/* ============================================================
-   SUBJECT COMBOBOX
-   ============================================================ */
 function SubjectCombobox({ options, value, onChange }) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState(value || "");
@@ -124,11 +121,13 @@ function SubjectCombobox({ options, value, onChange }) {
   );
 }
 
-/* ============================================================
-   MAIN COMPONENT
-   ============================================================ */
 export default function UploadQuestionPaper() {
   const navigate = useNavigate();
+
+  // 🚀 WAKE-UP PING: Render backend ko sleep se jagaane ke liye
+  useEffect(() => {
+    fetch(`${BACKEND_URL}/papers`).catch(() => {});
+  }, []);
 
   const [studentName, setStudentName] = useState("");
   const [rollNo, setRollNo] = useState("");
@@ -150,20 +149,15 @@ export default function UploadQuestionPaper() {
   const selectedCourse = useMemo(() => facultyCourses.find((c) => c.id === courseId), [courseId, facultyCourses]);
   const subjectOptions = useMemo(() => courseId && semester ? getSubjectsForCourseSem(courseId, semester) : [], [courseId, semester]);
 
-  /* ---------- File Pick (Updated for Mobile) ---------- */
   const handleFileChange = (file) => {
     if (!file) return;
-    
-    // Check file type (relaxed for some mobile browsers)
     if (file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf")) {
       return alert("Only PDF files are allowed.");
     }
-    
-    // INCREASED LIMIT TO 15MB for mobile uploads
+    // 🚀 Increased limit for mobile (15MB)
     if (file.size > 15 * 1024 * 1024) {
       return alert("File too large. Max 15 MB.");
     }
-    
     setPdfFile(file);
     setFileName(file.name);
   };
@@ -251,7 +245,6 @@ export default function UploadQuestionPaper() {
     <>
       <Header />
       <main className="upload-page">
-        {/* HERO */}
         <section className="upload-hero">
           <div className="upload-hero-text">
             <span className="upload-badge">
@@ -279,7 +272,6 @@ export default function UploadQuestionPaper() {
           </div>
         </section>
 
-        {/* FORM */}
         <section className="upload-grid">
           <div className="upload-card">
             <header className="upload-card-head">
@@ -288,7 +280,6 @@ export default function UploadQuestionPaper() {
             </header>
 
             <form className="upload-form" onSubmit={handleSubmit}>
-              {/* Student Details */}
               <div className="upload-section">
                 <div className="upload-section-head">
                   <span className="upload-step-num">1</span>
@@ -306,7 +297,6 @@ export default function UploadQuestionPaper() {
                 </div>
               </div>
 
-              {/* Paper Type */}
               <div className="upload-section">
                 <div className="upload-section-head">
                   <span className="upload-step-num">2</span>
@@ -322,7 +312,6 @@ export default function UploadQuestionPaper() {
                 </div>
               </div>
 
-              {/* Course Details */}
               <div className="upload-section">
                 <div className="upload-section-head">
                   <span className="upload-step-num">3</span>
@@ -374,7 +363,6 @@ export default function UploadQuestionPaper() {
                 </div>
               </div>
 
-              {/* File Upload */}
               <div className="upload-section">
                 <div className="upload-section-head">
                   <span className="upload-step-num">4</span>
@@ -420,7 +408,6 @@ export default function UploadQuestionPaper() {
             </form>
           </div>
 
-          {/* Side Panel */}
           <aside className="upload-side">
             <div className="upload-tip">
               <span className="upload-tip-ico"><i className="fas fa-lightbulb" /></span>

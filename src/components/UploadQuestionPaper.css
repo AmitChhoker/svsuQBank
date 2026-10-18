@@ -180,7 +180,7 @@
 .upload-page .subject-combo-row { display: flex; width: 100%; padding: 10px; border: none; background: transparent; cursor: pointer; text-align: left; }
 
 /* ============================================================
-   CRITICAL MOBILE PERFORMANCE FIXES (NO LAG)
+   🚀 NUCLEAR MOBILE PERFORMANCE FIX FOR UPLOAD PAGE
    ============================================================ */
 @media (max-width: 960px) {
   .upload-page .upload-hero { grid-template-columns: 1fr; padding: 40px 24px; text-align: center; gap: 20px; }
@@ -189,18 +189,18 @@
 }
 
 @media (max-width: 768px) {
-  /* 🚀 LAG KILLER: Remove all heavy shadows, filters, and animations on mobile */
-  .upload-page * {
+  .upload-page *, .upload-page *::before, .upload-page *::after {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
     box-shadow: none !important;
     text-shadow: none !important;
     animation: none !important;
-    transition: opacity 0.2s ease !important;
-    backdrop-filter: none !important;
-    filter: none !important;
+    transition: none !important;
   }
-  
-  .upload-page { padding: 16px 14px 60px; }
-  .upload-page .upload-hero { padding: 30px 16px; margin-bottom: 20px; }
+
+  .upload-page { padding: 16px 14px 60px; background: #f7f8fc !important; }
+  .upload-page .upload-hero { padding: 30px 16px; margin-bottom: 20px; background: #fff !important; }
   .upload-page .upload-card { padding: 20px 16px; }
   
   .upload-page .upload-type-toggle { grid-template-columns: 1fr; }

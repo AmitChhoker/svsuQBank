@@ -2192,6 +2192,299 @@ html, body { overflow-anchor: none; }
 
   /* Baaki mobile styles... */
 }
+/* ============================================================
+   SFET.css — scoped, modern, lag-free
+   ============================================================ */
+
+.sfet-page {
+  --p: #6366f1;
+  --p-dark: #4338ca;
+  --p-soft: #eef2ff;
+  --p-light: #c7d2fe;
+  --accent: #f59e0b;
+  --pink: #ec4899;
+
+  --text: #0b1220;
+  --text-soft: #475569;
+  --muted: #94a3b8;
+  --border: #e5e9f2;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 10px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 20px 45px rgba(15, 23, 42, 0.12);
+
+  --r: 16px;
+  --r-lg: 28px;
+  --t: 0.22s ease;
+
+  background: #f7f8fc;
+  min-height: 100vh;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 24px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.sfet-page * { box-sizing: border-box; }
+
+/* HERO & PAGE TITLE */
+.sfet-page .sfet-hero {
+  padding: 56px 48px;
+  margin: 24px 0 48px;
+  border-radius: var(--r-lg);
+  background: linear-gradient(135deg, #ffffff 0%, #f5f4ff 100%);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sfet-page .sfet-hero-text { position: relative; z-index: 2; }
+
+.sfet-page .sfet-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: var(--p-soft);
+  color: var(--p-dark);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid #e0e7ff;
+  margin-bottom: 20px;
+}
+
+.sfet-page .sfet-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--p); box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+.sfet-page .sfet-hero-title {
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.sfet-page .sfet-gradient-text {
+  background: linear-gradient(120deg, #6366f1 0%, #ec4899 55%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.sfet-page .sfet-hero-sub {
+  margin: 0 auto 30px;
+  max-width: 520px;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+/* Search Box */
+.sfet-page .sfet-search-wrap {
+  position: relative;
+  max-width: 540px;
+  margin: 0 auto;
+}
+.sfet-page .sfet-search-wrap input {
+  width: 100%;
+  padding: 16px 54px;
+  font-size: 16px;
+  color: var(--text);
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  outline: none;
+  transition: var(--t);
+  box-shadow: var(--shadow-xs);
+}
+.sfet-page .sfet-search-ico {
+  position: absolute; top: 50%; left: 20px;
+  transform: translateY(-50%); color: var(--p); pointer-events: none;
+}
+
+/* Dropdown Results */
+.sfet-page .sfet-search-dropdown {
+  position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+  max-height: 340px; overflow-y: auto; padding: 8px; margin: 0;
+  list-style: none; background: #fff; border: 1px solid var(--border);
+  border-radius: 14px; box-shadow: var(--shadow-lg); z-index: 40; text-align: left;
+}
+.sfet-page .sfet-search-dropdown li {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px; border-radius: 10px; cursor: pointer;
+}
+.sfet-page .sfet-search-dropdown li:hover { background: var(--p-soft); }
+.sfet-page .sfet-dd-row {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  padding: 0; border: none; background: transparent; cursor: pointer;
+}
+.sfet-page .sfet-file-pill {
+  display: grid; place-items: center; width: 32px; height: 32px;
+  border-radius: 8px; background: var(--p-soft); color: var(--p-dark);
+}
+.sfet-page .sfet-dd-body { display: flex; flex-direction: column; gap: 2px; flex: 1; text-align: left; }
+.sfet-page .sfet-dd-title { font-size: 0.92rem; font-weight: 600; color: var(--text); }
+.sfet-page .sfet-dd-meta { font-size: 0.76rem; color: var(--muted); }
+
+.sfet-page .sfet-page-title { text-align: center; margin: 8px 0 44px; }
+.sfet-page .sfet-page-title-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
+  margin-bottom: 12px; border-radius: 999px; background: var(--p-soft);
+  color: var(--p-dark); font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+}
+.sfet-page .sfet-page-title-main {
+  margin: 0 0 6px; font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 900;
+  background: linear-gradient(120deg, #6366f1 0%, #ec4899 55%, #f59e0b 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.sfet-page .sfet-page-title-sub { margin: 0; font-size: 0.95rem; color: var(--text-soft); }
+
+/* STEPS WIZARD & PANELS */
+.sfet-page .sfet-block { margin: 0 0 80px; }
+.sfet-page .sfet-block-head { margin-bottom: 28px; }
+.sfet-page .sfet-tag {
+  display: inline-flex; padding: 6px 14px; margin-bottom: 10px;
+  border-radius: 999px; background: var(--p-soft); color: var(--p-dark);
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+}
+.sfet-page .sfet-block-head h2 { margin: 0 0 6px; font-size: 1.9rem; font-weight: 800; }
+.sfet-page .sfet-block-head p { margin: 0; color: var(--text-soft); }
+
+.sfet-page .sfet-steps {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 14px 16px; margin-bottom: 24px; background: #fff;
+  border: 1px solid var(--border); border-radius: var(--r);
+}
+.sfet-page .sfet-step-pill {
+  display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px;
+  border: 1px solid var(--border); border-radius: 999px; background: #fff;
+  font-weight: 600; font-size: 0.85rem; color: var(--text-soft);
+}
+.sfet-page .sfet-step-pill.active { background: var(--p); color: #fff; border-color: var(--p); }
+.sfet-page .sfet-step-pill.done:not(.active) { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+.sfet-page .sfet-step-num {
+  display: grid; place-items: center; width: 22px; height: 22px;
+  border-radius: 50%; background: rgba(0,0,0,0.06); font-size: 0.74rem;
+}
+.sfet-page .sfet-step-pill.active .sfet-step-num { background: rgba(255,255,255,0.25); }
+.sfet-page .sfet-step-line { flex: 1; height: 1px; background: var(--border); }
+
+.sfet-page .sfet-panel {
+  padding: 26px; background: #fff; border: 1px solid var(--border);
+  border-radius: var(--r); box-shadow: var(--shadow-xs);
+}
+.sfet-page .sfet-panel-title { margin: 0 0 18px; font-size: 1.05rem; font-weight: 700; }
+.sfet-page .sfet-course-hint { margin: -8px 0 14px; font-size: 0.85rem; color: var(--muted); }
+
+/* NATIVE DROPDOWN */
+.sfet-page .sfet-native-dropdown-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+.sfet-page .sfet-native-dropdown {
+  width: 100%;
+  padding: 16px 20px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  transition: var(--t);
+}
+.sfet-page .sfet-native-dropdown:focus {
+  border-color: var(--p);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+.sfet-page .sfet-native-dropdown-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--p);
+  pointer-events: none;
+}
+
+/* SEMESTER & SUBJECT */
+.sfet-page .sfet-chip-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.sfet-page .sfet-chip {
+  padding: 16px 18px; background: var(--surface-2); border: 1.5px solid transparent;
+  border-radius: var(--r); cursor: pointer; text-align: left; transition: var(--t);
+}
+.sfet-page .sfet-chip:hover { background: var(--p-soft); transform: translateY(-2px); }
+.sfet-page .sfet-chip-main { font-size: 0.98rem; font-weight: 700; color: var(--text); display: block; }
+.sfet-page .sfet-chip-count { font-size: 0.78rem; color: var(--muted); display: block; margin-top: 4px; }
+
+.sfet-page .sfet-subject-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.sfet-page .sfet-subject-tile {
+  display: flex; flex-direction: column; gap: 12px; padding: 18px; min-height: 170px;
+  background: #fff; border: 1.5px solid var(--border); border-radius: var(--r);
+  cursor: pointer; text-align: left; transition: var(--t);
+}
+.sfet-page .sfet-subject-tile:hover { border-color: var(--p-light); transform: translateY(-3px); }
+.sfet-page .sfet-subject-name { font-size: 1rem; font-weight: 700; flex: 1; }
+.sfet-page .sfet-subject-open { font-size: 0.8rem; font-weight: 700; color: var(--p-dark); }
+
+/* MODALS & MISC */
+.sfet-modal-backdrop {
+  position: fixed; inset: 0; z-index: 99999; background: rgba(15,23,42,0.65);
+  display: flex; align-items: center; justify-content: center; padding: 16px;
+}
+.sfet-modal { width: min(1100px, 100%); height: min(90vh, 900px); background: #fff; border-radius: 18px; display: flex; flex-direction: column; overflow: hidden; }
+.sfet-modal-head { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
+.sfet-modal-body { flex: 1; background: #f3f4f6; }
+.sfet-modal-body iframe { width: 100%; height: 100%; border: 0; }
+
+
+/* ============================================================
+   🚀 NUCLEAR MOBILE PERFORMANCE FIX (NO LAG)
+   ============================================================ */
+@media (max-width: 768px) {
+  .sfet-page *, .sfet-page *::before, .sfet-page *::after, .sfet-modal-backdrop, .sfet-modal {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .sfet-page { padding: 16px 14px 60px; background: #f7f8fc !important; }
+  .sfet-page .sfet-hero { padding: 36px 22px; border-radius: var(--r); margin-bottom: 36px; background: #fff !important; }
+  .sfet-page .sfet-hero-title { font-size: 1.75rem; }
+  
+  .sfet-page .sfet-steps { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+  .sfet-page .sfet-step-pill { flex-shrink: 0; }
+  .sfet-page .sfet-step-line { display: none; }
+
+  .sfet-page .sfet-native-dropdown { padding: 14px 16px; font-size: 16px !important; }
+  
+  .sfet-page .sfet-subject-grid, .sfet-page .sfet-chip-row { grid-template-columns: 1fr; }
+  .sfet-page .sfet-subject-icon { width: 42px; height: 42px; }
+  .sfet-page .sfet-subject-icon img { width: 28px; height: 28px; }
+
+  .sfet-modal-body iframe { will-change: auto !important; transform: translateZ(0); }
+}
 /* Shorter fade = faster feel */
 .sfet-page .sfet-fade {
   animation: sfetFade 0.16s ease-out;

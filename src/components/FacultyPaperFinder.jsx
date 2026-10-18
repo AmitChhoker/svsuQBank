@@ -84,9 +84,7 @@ const STATIC_PAPERS = {
 };
 
 const buildBaseCourses = (faculty) => {
-  const facultyCourses = COURSE_OPTIONS.filter(
-    (c) => getCourseFaculty(c) === faculty
-  );
+  const facultyCourses = COURSE_OPTIONS.filter((c) => getCourseFaculty(c) === faculty);
   return facultyCourses.map((c) => ({
     id: c.id,
     name: c.name,
@@ -201,8 +199,7 @@ export default function FacultyPaperFinder({ faculty = "sfet" }) {
   const [subjectIdx, setSubjectIdx] = useState(null);
   const [heroQuery, setHeroQuery] = useState("");
   
-  // Removed qbQuery and qbLetter states
-  const [selectedQb, setSelectedQb] = useState(""); // New state for Question Bank dropdown
+  const [selectedQb, setSelectedQb] = useState("");
   const [viewer, setViewer] = useState(null);
 
   const course = useMemo(() => courses.find((c) => c.id === courseId) || null, [courseId, courses]);
@@ -216,11 +213,8 @@ export default function FacultyPaperFinder({ faculty = "sfet" }) {
     return allSubjects.filter((x) => x.subject.name.toLowerCase().includes(q) || x.course.name.toLowerCase().includes(q) || x.semester.toLowerCase().includes(q)).slice(0, 10);
   }, [heroQuery, allSubjects]);
 
-  // Convert Question Bank object to a sorted array for the dropdown
   const qbArray = useMemo(() => {
-    return Object.keys(QUESTION_BANK_LINKS)
-      .sort((a, b) => a.localeCompare(b))
-      .map((title) => ({ title, link: QUESTION_BANK_LINKS[title] }));
+    return Object.keys(QUESTION_BANK_LINKS).sort((a, b) => a.localeCompare(b)).map((title) => ({ title, link: QUESTION_BANK_LINKS[title] }));
   }, []);
 
   const closeViewer = useCallback(() => setViewer(null), []);
@@ -457,9 +451,7 @@ export default function FacultyPaperFinder({ faculty = "sfet" }) {
           )}
         </section>
 
-        {/* ============================================================ */}
-        {/* QUESTION BANKS - UPDATED TO NATIVE DROPDOWN */}
-        {/* ============================================================ */}
+        {/* QUESTION BANKS */}
         {faculty === "sfet" && (
           <section className="sfet-block">
             <div className="sfet-block-head">
@@ -480,23 +472,15 @@ export default function FacultyPaperFinder({ faculty = "sfet" }) {
                   if (title) {
                     const qb = qbArray.find((q) => q.title === title);
                     if (qb) {
-                      openPaper({
-                        url: qb.link,
-                        title: qb.title,
-                        subtitle: "Question Bank",
-                        kind: "q",
-                      });
+                      openPaper({ url: qb.link, title: qb.title, subtitle: "Question Bank", kind: "q" });
                     }
-                    // Reset selection after a short delay so they can click it again if they want
                     setTimeout(() => setSelectedQb(""), 500);
                   }
                 }}
               >
                 <option value="" disabled>-- Select a Question Bank --</option>
                 {qbArray.map((qb) => (
-                  <option key={qb.title} value={qb.title}>
-                    {qb.title}
-                  </option>
+                  <option key={qb.title} value={qb.title}>{qb.title}</option>
                 ))}
               </select>
               <i className="fas fa-chevron-down sfet-native-dropdown-icon"></i>
@@ -508,7 +492,6 @@ export default function FacultyPaperFinder({ faculty = "sfet" }) {
       <SocialMediaBar />
       <AIFloatingButton />
       <Footer />
-
       <PaperViewer paper={viewer} onClose={closeViewer} />
     </>
   );
