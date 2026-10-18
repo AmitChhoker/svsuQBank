@@ -69,7 +69,7 @@ function SubjectCombobox({ options, value, onChange }) {
           placeholder={
             options.length
               ? "Search or type subject…"
-              : "Type subject name (e.g. Operating System)"
+              : "Type subject name"
           }
           value={query}
           onChange={(e) => {
@@ -89,7 +89,6 @@ function SubjectCombobox({ options, value, onChange }) {
             setOpen((v) => !v);
             inputRef.current?.focus();
           }}
-          aria-label="Toggle list"
         >
           <i className="fas fa-chevron-down" />
         </button>
@@ -98,49 +97,24 @@ function SubjectCombobox({ options, value, onChange }) {
       {open && (
         <div className="subject-combo-panel">
           <div className="subject-combo-panel-head">
-            {filtered.length
-              ? `Suggestions (${filtered.length})`
-              : options.length
-              ? "No matches"
-              : "Type any subject name"}
+            {filtered.length ? `Suggestions (${filtered.length})` : "Type any subject name"}
           </div>
-
           <ul className="subject-combo-list">
             {filtered.map((s) => (
               <li key={s}>
-                <button
-                  type="button"
-                  className="subject-combo-row"
-                  onClick={() => commit(s)}
-                >
+                <button type="button" className="subject-combo-row" onClick={() => commit(s)}>
                   <span className="subject-combo-dot" />
                   <span>{s}</span>
-                  {s === value && (
-                    <i className="fas fa-check subject-combo-check" />
-                  )}
+                  {s === value && <i className="fas fa-check subject-combo-check" />}
                 </button>
               </li>
             ))}
-
             {query.trim() && !exactMatch && (
               <li className="subject-combo-custom">
-                <button
-                  type="button"
-                  className="subject-combo-row custom"
-                  onClick={() => commit(query.trim())}
-                >
+                <button type="button" className="subject-combo-row custom" onClick={() => commit(query.trim())}>
                   <span className="subject-combo-dot custom" />
-                  <span>
-                    Use custom: <strong>"{query.trim()}"</strong>
-                  </span>
+                  <span>Use custom: <strong>"{query.trim()}"</strong></span>
                 </button>
-              </li>
-            )}
-
-            {!filtered.length && !query.trim() && !options.length && (
-              <li className="subject-combo-hint">
-                <i className="fas fa-info-circle" /> Just type the subject name
-                above
               </li>
             )}
           </ul>
@@ -151,12 +125,11 @@ function SubjectCombobox({ options, value, onChange }) {
 }
 
 /* ============================================================
-   MAIN
+   MAIN COMPONENT
    ============================================================ */
 export default function UploadQuestionPaper() {
   const navigate = useNavigate();
 
-  /* ---------- Form state ---------- */
   const [studentName, setStudentName] = useState("");
   const [rollNo, setRollNo] = useState("");
   const [faculty, setFaculty] = useState("sfet");
@@ -173,30 +146,24 @@ export default function UploadQuestionPaper() {
   const [statusMsg, setStatusMsg] = useState("");
   const [successPaper, setSuccessPaper] = useState(null);
 
-  /* Courses limited to the selected faculty */
-  const facultyCourses = useMemo(
-    () => getCoursesByFaculty(faculty),
-    [faculty]
-  );
+  const facultyCourses = useMemo(() => getCoursesByFaculty(faculty), [faculty]);
+  const selectedCourse = useMemo(() => facultyCourses.find((c) => c.id === courseId), [courseId, facultyCourses]);
+  const subjectOptions = useMemo(() => courseId && semester ? getSubjectsForCourseSem(courseId, semester) : [], [courseId, semester]);
 
-  const selectedCourse = useMemo(
-    () => facultyCourses.find((c) => c.id === courseId),
-    [courseId, facultyCourses]
-  );
-
-  const subjectOptions = useMemo(
-    () =>
-      courseId && semester ? getSubjectsForCourseSem(courseId, semester) : [],
-    [courseId, semester]
-  );
-
-  /* ---------- File pick ---------- */
+  /* ---------- File Pick (Updated for Mobile) ---------- */
   const handleFileChange = (file) => {
     if (!file) return;
-    if (file.type !== "application/pdf")
+    
+    // Check file type (relaxed for some mobile browsers)
+    if (file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf")) {
       return alert("Only PDF files are allowed.");
-    if (file.size > 5 * 1024 * 1024)
-      return alert("File too large. Max 5 MB.");
+    }
+    
+    // INCREASED LIMIT TO 15MB for mobile uploads
+    if (file.size > 15 * 1024 * 1024) {
+      return alert("File too large. Max 15 MB.");
+    }
+    
     setPdfFile(file);
     setFileName(file.name);
   };
@@ -209,23 +176,12 @@ export default function UploadQuestionPaper() {
   };
 
   const resetForm = () => {
-    setStudentName("");
-    setRollNo("");
-    setFaculty("sfet");
-    setCourseId("");
-    setSemester("");
-    setYear("");
-    setExamType("");
-    setSubject("");
-    setPaperType("question");
-    setPdfFile(null);
-    setFileName("");
-    setStatus("idle");
-    setStatusMsg("");
-    setSuccessPaper(null);
+    setStudentName(""); setRollNo(""); setFaculty("sfet"); setCourseId("");
+    setSemester(""); setYear(""); setExamType(""); setSubject("");
+    setPaperType("question"); setPdfFile(null); setFileName("");
+    setStatus("idle"); setStatusMsg(""); setSuccessPaper(null);
   };
 
-  /* ---------- Submit ---------- */
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -234,31 +190,19 @@ export default function UploadQuestionPaper() {
     if (!semester) return alert("Please select a semester.");
     if (!subject.trim()) return alert("Please choose or type a subject.");
 
-    /* Duplicate check (faculty-aware) */
     const dup = isUploadedAlready({
-      faculty,
-      courseId: selectedCourse.id,
-      courseName: selectedCourse.name,
-      semester,
-      subject: subject.trim(),
-      year,
-      type: paperType,
+      faculty, courseId: selectedCourse.id, courseName: selectedCourse.name,
+      semester, subject: subject.trim(), year, type: paperType,
     });
 
     if (dup) {
       setStatus("error");
-      setStatusMsg(
-        `This ${paperType} for "${subject.trim()}" (${year}, ${semester}) is already uploaded.`
-      );
+      setStatusMsg(`This ${paperType} for "${subject.trim()}" (${year}, ${semester}) is already uploaded.`);
       return;
     }
 
     setStatus("uploading");
-    setStatusMsg(
-      paperType === "solution"
-        ? "Uploading solution to Google Drive…"
-        : "Uploading question paper to Google Drive…"
-    );
+    setStatusMsg("Uploading to Google Drive…");
 
     const formData = new FormData();
     formData.append("file", pdfFile);
@@ -278,48 +222,25 @@ export default function UploadQuestionPaper() {
         body: formData,
       });
       const data = await response.json();
-      if (!response.ok || !data.success)
-        throw new Error(data.error || "Upload failed");
+      if (!response.ok || !data.success) throw new Error(data.error || "Upload failed");
 
       const paper = {
-        id: data.fileId,
-        studentName,
-        rollNo,
-        faculty,
-        courseId: selectedCourse.id,
-        courseName: selectedCourse.name,
-        courseShort: selectedCourse.short,
-        semester,
-        year,
-        examType,
-        subject: subject.trim(),
-        type: paperType,
-        fileName,
-        fileUrl: data.fileUrl,
-        downloadUrl: data.downloadUrl,
-        uploadedAt: Date.now(),
-        source: "drive",
+        id: data.fileId, studentName, rollNo, faculty,
+        courseId: selectedCourse.id, courseName: selectedCourse.name,
+        courseShort: selectedCourse.short, semester, year, examType,
+        subject: subject.trim(), type: paperType, fileName,
+        fileUrl: data.fileUrl, downloadUrl: data.downloadUrl,
+        uploadedAt: Date.now(), source: "drive",
       };
 
       saveUploadedPaper(paper);
       setSuccessPaper(paper);
       setStatus("success");
-      setStatusMsg(
-        paperType === "solution"
-          ? "Solution uploaded successfully!"
-          : "Question paper uploaded successfully!"
-      );
+      setStatusMsg("Uploaded successfully!");
     } catch (err) {
-      console.warn("Upload error:", err);
       let friendly = "Upload failed.";
       const msg = err?.message || "";
-      if (msg.includes("Failed to fetch") || msg.includes("NetworkError")) {
-        friendly =
-          "Cannot reach the backend. Is 'npm start' running inside the server/ folder?";
-      } else if (msg.includes("Only PDF"))
-        friendly = "Only PDF files are allowed.";
-      else if (msg.includes("File too large"))
-        friendly = "File is too large. Max size is 5 MB.";
+      if (msg.includes("Failed to fetch")) friendly = "Cannot reach backend. Server might be waking up (wait 50s) or network issue.";
       else if (msg) friendly = msg;
       setStatus("error");
       setStatusMsg(friendly);
@@ -329,7 +250,6 @@ export default function UploadQuestionPaper() {
   return (
     <>
       <Header />
-
       <main className="upload-page">
         {/* HERO */}
         <section className="upload-hero">
@@ -338,32 +258,23 @@ export default function UploadQuestionPaper() {
               <span className="upload-dot" /> Contribute a paper
             </span>
             <h1 className="upload-title">
-              Upload a question paper or solution,
-              <br />
-              <span className="upload-gradient-text">
-                help every SVSU student.
-              </span>
+              Upload a paper,<br />
+              <span className="upload-gradient-text">help every SVSU student.</span>
             </h1>
             <p className="upload-sub">
-              Add a previous year paper or answer key. It saves to Google Drive
-              and appears instantly in the papers section for everyone.
+              Add a previous year paper or answer key. It saves to Google Drive.
             </p>
-
             <div className="upload-hero-cta">
               <Link to="/" className="upload-cta-primary">
                 <i className="fas fa-book-open" /> Browse papers
               </Link>
-              <Link to="/Admin" className="upload-cta-secondary">
-                <i className="fas fa-user-shield" /> Admin
-              </Link>
             </div>
           </div>
-
           <div className="upload-hero-art">
             <div className="upload-art-glow" />
             <div className="upload-art-card">
               <i className="fas fa-cloud-arrow-up" />
-              <span>PDF · Max 5MB</span>
+              <span>PDF · Max 15MB</span>
             </div>
           </div>
         </section>
@@ -373,59 +284,37 @@ export default function UploadQuestionPaper() {
           <div className="upload-card">
             <header className="upload-card-head">
               <h2>Paper details</h2>
-              <p>Fill in every field so the paper is easy to find.</p>
+              <p>Fill in every field.</p>
             </header>
 
             <form className="upload-form" onSubmit={handleSubmit}>
-              {/* Step A — Student */}
+              {/* Student Details */}
               <div className="upload-section">
                 <div className="upload-section-head">
                   <span className="upload-step-num">1</span>
                   <h3>Your details</h3>
                 </div>
-
                 <div className="upload-row">
                   <label className="upload-field">
                     <span>Full name</span>
-                    <input
-                      type="text"
-                      placeholder="e.g. Aarav Sharma"
-                      value={studentName}
-                      onChange={(e) => setStudentName(e.target.value)}
-                      required
-                    />
+                    <input type="text" placeholder="e.g. Aarav Sharma" value={studentName} onChange={(e) => setStudentName(e.target.value)} required />
                   </label>
-
                   <label className="upload-field">
                     <span>Roll number</span>
-                    <input
-                      type="text"
-                      placeholder="e.g. 2210100001"
-                      value={rollNo}
-                      onChange={(e) => setRollNo(e.target.value)}
-                      required
-                    />
+                    <input type="text" placeholder="e.g. 2210100001" value={rollNo} onChange={(e) => setRollNo(e.target.value)} required />
                   </label>
                 </div>
               </div>
 
-              {/* Step B — Paper type */}
+              {/* Paper Type */}
               <div className="upload-section">
                 <div className="upload-section-head">
                   <span className="upload-step-num">2</span>
                   <h3>What are you uploading?</h3>
                 </div>
-
                 <div className="upload-type-toggle">
                   {PAPER_TYPES.map((t) => (
-                    <button
-                      key={t.id}
-                      type="button"
-                      className={`upload-type-btn ${
-                        paperType === t.id ? "active" : ""
-                      }`}
-                      onClick={() => setPaperType(t.id)}
-                    >
+                    <button key={t.id} type="button" className={`upload-type-btn ${paperType === t.id ? "active" : ""}`} onClick={() => setPaperType(t.id)}>
                       <i className={`fas ${t.icon}`} />
                       <span>{t.label}</span>
                     </button>
@@ -433,207 +322,93 @@ export default function UploadQuestionPaper() {
                 </div>
               </div>
 
-              {/* Step C — Faculty / Course / Semester / Year / Exam / Subject */}
+              {/* Course Details */}
               <div className="upload-section">
                 <div className="upload-section-head">
                   <span className="upload-step-num">3</span>
                   <h3>Paper details</h3>
                 </div>
 
-                {/* Faculty */}
                 <label className="upload-field">
                   <span>Faculty</span>
-                  <select
-                    value={faculty}
-                    onChange={(e) => {
-                      setFaculty(e.target.value);
-                      setCourseId("");
-                      setSemester("");
-                      setSubject("");
-                    }}
-                    required
-                  >
-                    {FACULTIES.map((f) => (
-                      <option key={f.id} value={f.id}>
-                        {f.name}
-                      </option>
-                    ))}
+                  <select value={faculty} onChange={(e) => { setFaculty(e.target.value); setCourseId(""); setSemester(""); setSubject(""); }} required>
+                    {FACULTIES.map((f) => <option key={f.id} value={f.id}>{f.name}</option>)}
                   </select>
                 </label>
 
-                {/* Course */}
                 <label className="upload-field">
                   <span>Course</span>
-                  <select
-                    value={courseId}
-                    onChange={(e) => {
-                      setCourseId(e.target.value);
-                      setSemester("");
-                      setSubject("");
-                    }}
-                    required
-                  >
+                  <select value={courseId} onChange={(e) => { setCourseId(e.target.value); setSemester(""); setSubject(""); }} required>
                     <option value="">Select course</option>
-                    {facultyCourses.map((c) => (
-                      <option key={c.id} value={c.id}>
-                        {c.name}
-                      </option>
-                    ))}
+                    {facultyCourses.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
                   </select>
                 </label>
 
                 <div className="upload-row">
                   <label className="upload-field">
                     <span>Semester</span>
-                    <select
-                      value={semester}
-                      onChange={(e) => {
-                        setSemester(e.target.value);
-                        setSubject("");
-                      }}
-                      disabled={!selectedCourse}
-                      required
-                    >
-                      <option value="">
-                        {selectedCourse
-                          ? "Select semester"
-                          : "Pick course first"}
-                      </option>
-                      {selectedCourse?.semesters.map((s) => (
-                        <option key={s.name} value={s.name}>
-                          {s.name}
-                        </option>
-                      ))}
+                    <select value={semester} onChange={(e) => { setSemester(e.target.value); setSubject(""); }} disabled={!selectedCourse} required>
+                      <option value="">{selectedCourse ? "Select semester" : "Pick course first"}</option>
+                      {selectedCourse?.semesters.map((s) => <option key={s.name} value={s.name}>{s.name}</option>)}
                     </select>
                   </label>
-
                   <label className="upload-field">
                     <span>Year</span>
-                    <select
-                      value={year}
-                      onChange={(e) => setYear(e.target.value)}
-                      required
-                    >
+                    <select value={year} onChange={(e) => setYear(e.target.value)} required>
                       <option value="">Select year</option>
-                      {YEAR_OPTIONS.map((y) => (
-                        <option key={y} value={y}>
-                          {y}
-                        </option>
-                      ))}
+                      {YEAR_OPTIONS.map((y) => <option key={y} value={y}>{y}</option>)}
                     </select>
                   </label>
-
                   <label className="upload-field">
                     <span>Exam type</span>
-                    <select
-                      value={examType}
-                      onChange={(e) => setExamType(e.target.value)}
-                      required
-                    >
+                    <select value={examType} onChange={(e) => setExamType(e.target.value)} required>
                       <option value="">Select</option>
-                      {EXAM_TYPES.map((t) => (
-                        <option key={t} value={t}>
-                          {t}
-                        </option>
-                      ))}
+                      {EXAM_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
                     </select>
                   </label>
                 </div>
 
                 <div className="upload-field">
                   <span>Subject</span>
-                  <SubjectCombobox
-                    options={subjectOptions}
-                    value={subject}
-                    onChange={setSubject}
-                  />
+                  <SubjectCombobox options={subjectOptions} value={subject} onChange={setSubject} />
                 </div>
               </div>
 
-              {/* Step D — File */}
+              {/* File Upload */}
               <div className="upload-section">
                 <div className="upload-section-head">
                   <span className="upload-step-num">4</span>
                   <h3>Attach file</h3>
                 </div>
-
-                <label
-                  className={`upload-dropzone ${dragOver ? "is-over" : ""} ${
-                    pdfFile ? "has-file" : ""
-                  }`}
-                  onDragOver={(e) => {
-                    e.preventDefault();
-                    setDragOver(true);
-                  }}
-                  onDragLeave={() => setDragOver(false)}
-                  onDrop={onDrop}
-                >
-                  <input
-                    type="file"
-                    accept=".pdf"
-                    onChange={onInputChange}
-                    hidden
-                  />
-
+                <label className={`upload-dropzone ${dragOver ? "is-over" : ""} ${pdfFile ? "has-file" : ""}`} onDragOver={(e) => { e.preventDefault(); setDragOver(true); }} onDragLeave={() => setDragOver(false)} onDrop={onDrop}>
+                  <input type="file" accept=".pdf,application/pdf" onChange={onInputChange} hidden />
                   {pdfFile ? (
                     <div className="upload-dropzone-filled">
-                      <span className="upload-dropzone-icon ok">
-                        <i className="fas fa-file-pdf" />
-                      </span>
+                      <span className="upload-dropzone-icon ok"><i className="fas fa-file-pdf" /></span>
                       <div className="upload-dropzone-meta">
                         <strong>{fileName}</strong>
-                        <span>
-                          {(pdfFile.size / 1024).toFixed(0)} KB · Ready to upload
-                        </span>
+                        <span>{(pdfFile.size / 1024 / 1024).toFixed(2)} MB · Ready to upload</span>
                       </div>
-                      <button
-                        type="button"
-                        className="upload-dropzone-remove"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setPdfFile(null);
-                          setFileName("");
-                        }}
-                      >
+                      <button type="button" className="upload-dropzone-remove" onClick={(e) => { e.preventDefault(); setPdfFile(null); setFileName(""); }}>
                         <i className="fas fa-times" />
                       </button>
                     </div>
                   ) : (
                     <div className="upload-dropzone-empty">
-                      <span className="upload-dropzone-icon">
-                        <i className="fas fa-cloud-arrow-up" />
-                      </span>
+                      <span className="upload-dropzone-icon"><i className="fas fa-cloud-arrow-up" /></span>
                       <strong>Drop your PDF here</strong>
-                      <span>or click to browse · PDF only · max 5 MB</span>
+                      <span>or tap to browse · PDF only · max 15 MB</span>
                     </div>
                   )}
                 </label>
               </div>
 
               <div className="upload-actions">
-                <button
-                  type="button"
-                  className="upload-btn ghost"
-                  onClick={resetForm}
-                  disabled={status === "uploading"}
-                >
+                <button type="button" className="upload-btn ghost" onClick={resetForm} disabled={status === "uploading"}>
                   <i className="fas fa-rotate-left" /> Reset
                 </button>
-
-                <button
-                  type="submit"
-                  className="upload-btn primary"
-                  disabled={status === "uploading"}
-                >
-                  {status === "uploading" ? (
-                    <>
-                      <i className="fas fa-spinner fa-spin" /> Uploading…
-                    </>
-                  ) : (
-                    <>
-                      <i className="fas fa-cloud-arrow-up" /> Upload
-                    </>
-                  )}
+                <button type="submit" className="upload-btn primary" disabled={status === "uploading"}>
+                  {status === "uploading" ? <><i className="fas fa-spinner fa-spin" /> Uploading…</> : <><i className="fas fa-cloud-arrow-up" /> Upload</>}
                 </button>
               </div>
 
@@ -645,74 +420,32 @@ export default function UploadQuestionPaper() {
             </form>
           </div>
 
-          {/* Side panel */}
+          {/* Side Panel */}
           <aside className="upload-side">
             <div className="upload-tip">
-              <span className="upload-tip-ico">
-                <i className="fas fa-lightbulb" />
-              </span>
+              <span className="upload-tip-ico"><i className="fas fa-lightbulb" /></span>
               <div>
                 <h4>Where it goes</h4>
-                <p>
-                  Your paper is saved to the SVSU Google Drive folder and appears
-                  instantly in the papers section for everyone.
-                </p>
+                <p>Your paper is saved to Google Drive and appears in the papers section.</p>
               </div>
             </div>
-
             <div className="upload-tip">
-              <span className="upload-tip-ico">
-                <i className="fas fa-file-pdf" />
-              </span>
+              <span className="upload-tip-ico"><i className="fas fa-file-pdf" /></span>
               <div>
                 <h4>PDF only</h4>
-                <p>Make sure it's a clear scan. Max file size is 5 MB.</p>
+                <p>Make sure it's a clear scan. Max file size is 15 MB.</p>
               </div>
             </div>
-
-            <div className="upload-tip">
-              <span className="upload-tip-ico">
-                <i className="fas fa-circle-info" />
-              </span>
-              <div>
-                <h4>No duplicates</h4>
-                <p>
-                  If a paper or solution for the same year already exists, we
-                  won't let it be uploaded twice.
-                </p>
-              </div>
-            </div>
-
+            
             {status === "success" && successPaper && (
               <div className="upload-success">
-                <span className="upload-success-ico">
-                  <i className="fas fa-circle-check" />
-                </span>
+                <span className="upload-success-ico"><i className="fas fa-circle-check" /></span>
                 <div>
-                  <h4>
-                    {successPaper.type === "solution"
-                      ? "Solution uploaded"
-                      : "Question paper uploaded"}
-                  </h4>
-                  <p>
-                    <strong>{successPaper.subject}</strong> ·{" "}
-                    {successPaper.semester} · {successPaper.year}
-                  </p>
+                  <h4>Uploaded!</h4>
+                  <p><strong>{successPaper.subject}</strong> · {successPaper.semester}</p>
                   <div className="upload-success-actions">
-                    <button
-                      type="button"
-                      className="upload-success-link"
-                      onClick={() => navigate("/")}
-                    >
-                      View in papers <i className="fas fa-arrow-right" />
-                    </button>
-                    <button
-                      type="button"
-                      className="upload-success-btn"
-                      onClick={resetForm}
-                    >
-                      Upload another
-                    </button>
+                    <button type="button" className="upload-success-link" onClick={() => navigate("/")}>View in papers <i className="fas fa-arrow-right" /></button>
+                    <button type="button" className="upload-success-btn" onClick={resetForm}>Upload another</button>
                   </div>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import driveLinks from "../data/driveLinks";
-import "./ProgramCard.css";
+// import "./ProgramCard.css";
 
 const ProgramCard = ({ programs = [] }) => {
   const [activeCourseIndex, setActiveCourseIndex] = useState(null);
@@ -39,42 +39,35 @@ const ProgramCard = ({ programs = [] }) => {
 
   return (
     <div className="pc-wrap">
-      {/* ================= PROGRAMS ================= */}
+      {/* ================= PROGRAMS (DROPDOWN) ================= */}
       <div className="pc-step">
         <div className="pc-step-head">
           <span className="pc-step-num">1</span>
-          <h4>Choose a program</h4>
+          <h4>Choose a course</h4>
         </div>
 
-        <div className="pc-program-grid">
-          {programs.map((program, index) => (
-            <button
-              key={index}
-              type="button"
-              className={`pc-program-card ${
-                index === activeCourseIndex ? "active" : ""
-              }`}
-              onClick={() => {
-                setActiveCourseIndex(index);
-                resetBelowCourse();
-              }}
-            >
-              {program.image && (
-                <span className="pc-program-img">
-                  <img src={program.image} alt="" />
-                </span>
-              )}
-              <span className="pc-program-text">
-                <span className="pc-program-title">{program.title}</span>
-                {program.description && (
-                  <span className="pc-program-desc">
-                    {program.description}
-                  </span>
-                )}
-              </span>
-              <i className="fas fa-arrow-right pc-program-arrow" />
-            </button>
-          ))}
+        <div className="pc-dropdown-wrap">
+          <select
+            className="pc-dropdown"
+            value={activeCourseIndex !== null ? activeCourseIndex : ""}
+            onChange={(e) => {
+              const val = e.target.value;
+              if (val === "") {
+                setActiveCourseIndex(null);
+              } else {
+                setActiveCourseIndex(Number(val));
+              }
+              resetBelowCourse();
+            }}
+          >
+            <option value="">-- Select a Course --</option>
+            {programs.map((program, index) => (
+              <option key={index} value={index}>
+                {program.title}
+              </option>
+            ))}
+          </select>
+          <i className="fas fa-chevron-down pc-dropdown-icon" />
         </div>
       </div>
 

@@ -111,7 +111,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="#" aria-label="GitHub">
+              <a href="https://github.com/AmitChhoker/svsuQBank" aria-label="GitHub">
                 <i className="fab fa-github" /> GitHub
               </a>
             </li>
