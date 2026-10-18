@@ -251,11 +251,11 @@ function Header() {
               </div>
             </li>
 
-            <li>
+            {/* <li>
               <Link to="/UploadQuestionPaper" onClick={closeMenu} className="nav-link">
                 Upload Paper
               </Link>
-            </li>
+            </li> */}
 
             <li>
               <Link to="/QBankUpload" onClick={closeMenu} className="nav-link">
